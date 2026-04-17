@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using PROG7311GLMS.Models;
+
 namespace PROG7311GLMS
 {
     public class Program
@@ -5,6 +8,9 @@ namespace PROG7311GLMS
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<GlmsContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); //?? throw new InvalidOperationException("Connection string 'GlmsContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
