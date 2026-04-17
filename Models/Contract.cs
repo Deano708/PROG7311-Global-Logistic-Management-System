@@ -27,3 +27,21 @@ public partial class Contract
 
     public virtual Status Status { get; set; } = null!;
 }
+
+// Prototype partial class
+public partial class Contract : ICloneable
+{
+    public object Clone()
+    {
+        return new Contract
+        {
+            ClientId = this.ClientId,
+            ServiceLevel = this.ServiceLevel,
+            StatusId = this.StatusId,
+            // Reset dates and files for the new clone
+            StartDate = DateTime.Now,
+            EndDate = DateTime.Now.AddYears(1),
+            SignedAgreementFilePath = null
+        };
+    }
+}

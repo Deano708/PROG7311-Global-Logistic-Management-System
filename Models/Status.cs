@@ -17,3 +17,22 @@ public partial class Status
 
     public virtual ICollection<ServiceRequest> ServiceRequests { get; set; } = new List<ServiceRequest>();
 }
+public interface IStatusObserver
+{
+    void Update(string message);
+}
+
+public class ComplianceNotificationService : IStatusObserver
+{
+    public void Update(string message)
+    {
+        // Logic to log or email the Compliance Officer
+        Console.WriteLine($"[Compliance Alert]: {message}");
+    }
+}
+
+public interface IStatusSubject
+{
+    void Attach(IStatusObserver observer);
+    void Notify(string message);
+}
