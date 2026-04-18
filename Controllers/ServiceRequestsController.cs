@@ -11,6 +11,24 @@ public class ServiceRequestsController : Controller
         _facade = facade;
     }
 
+    // GET: ServiceRequests/Create
+    [HttpGet]
+    public IActionResult Create(int? contractId)
+    {
+        var model = new ServiceRequest();
+        if (contractId.HasValue)
+            model.ContractId = contractId.Value;
+
+        return View(model);
+    }
+
+    // GET: ServiceRequests (simple redirect to Contracts list for now)
+    [HttpGet]
+    public IActionResult Index()
+    {
+        return RedirectToAction("Index", "Contracts");
+    }
+
     [HttpPost]
     public async Task<IActionResult> Create(ServiceRequest request)
     {

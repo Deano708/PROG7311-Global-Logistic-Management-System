@@ -1,0 +1,27 @@
+﻿@model PROG7311GLMS.Models.ServiceRequest
+
+<h2>Raise Service Request</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Validation Failed:</strong> @TempData["Error"]
+    </div>
+}
+
+<form asp-action="Create" method="post">
+    <input type="hidden" asp-for="ContractId" value="@Context.Request.Query["contractId"]" />
+
+    <div class="form-group mb-3">
+        <label asp-for="Description">Request Details</label>
+        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="CostUsd">Cost (USD)</label>
+        <input asp-for="CostUsd" class="form-control" type="number" step="0.01" placeholder="0.00" />
+        <small class="text-muted">The system will automatically convert this to ZAR based on live rates.</small>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit Request</button>
+</form>

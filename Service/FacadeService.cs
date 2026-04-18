@@ -1,4 +1,8 @@
 ﻿using PROG7311GLMS.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http;
+using System.IO;
 
 namespace PROG7311GLMS.Service
 {
@@ -24,11 +28,24 @@ namespace PROG7311GLMS.Service
         // --- Validation & Logic ---
         public async Task<bool> CreateServiceRequest(ServiceRequest request)
         {
+            if (request == null)
+            {
+                Notify("Request is null.");
+                return false;
+            }
+
             var contract = await _context.Contracts.FindAsync(request.ContractId);
+
+            if (contract == null)
+            {
+                Notify($"Request denied: Contract {request.ContractId} not found.");
+                return false;
+            }
+
             var status = await _context.Statuses.FindAsync(contract.StatusId);
 
-            // Logic: Cannot create if Expired (Assume ID 3) or On-Hold (Assume ID 4)
-            if (status.StatusName == "Expired" || status.StatusName == "On-Hold" || contract.EndDate < DateTime.Now)
+            // Logic: Cannot create if Expired or On-Hold or contract has passed its end date
+            if (status == null || status.StatusName == "Expired" || status.StatusName == "On-Hold" || contract.EndDate < DateTime.Now)
             {
                 Notify($"Request denied for Contract {contract.ContractId}: Contract is inactive.");
                 return false;
@@ -42,12 +59,17 @@ namespace PROG7311GLMS.Service
         // --- LINQ Filter Mechanism ---
         public IEnumerable<Contract> FilterContracts(DateTime start, DateTime end, int? statusId)
         {
-            var query = _context.Contracts.AsQueryable();
+            // Include related navigation properties so views can access Client and Status without null refs
+            var query = _context.Contracts
+                .Include(c => c.Client)
+                .Include(c => c.Status)
+                .AsQueryable();
 
-            query = query.Where(c => c.StartDate >= start && c.EndDate <= end);
+            // Use overlapping-range filter so contracts that intersect the requested range are returned
+            query = query.Where(c => c.StartDate <= end && c.EndDate >= start);
 
             if (statusId.HasValue)
-                query = query.Where(c => c.StatusId == statusId);
+                query = query.Where(c => c.StatusId == statusId.Value);
 
             return query.ToList();
         }
@@ -66,11 +88,17 @@ namespace PROG7311GLMS.Service
         public async Task<string> UploadAgreement(IFormFile file)
         {
             if (file == null) return null;
-            var path = Path.Combine("wwwroot/uploads", Guid.NewGuid() + "_" + file.FileName);
+            var uploadsRoot = Path.Combine("wwwroot", "uploads");
+            Directory.CreateDirectory(uploadsRoot);
+
+            var safeFileName = Guid.NewGuid() + "_" + Path.GetFileName(file.FileName);
+            var path = Path.Combine(uploadsRoot, safeFileName);
+
             using (var stream = new FileStream(path, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
+
             return path;
         }
     }

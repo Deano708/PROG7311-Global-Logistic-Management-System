@@ -47,6 +47,15 @@ public class ContractsController : Controller
         return View(contract);
     }
 
+    // GET: Contracts/Create
+    [HttpGet]
+    public IActionResult Create()
+    {
+        ViewBag.Clients = _context.Clients.ToList();
+        ViewBag.Statuses = _context.Statuses.Where(s => s.Category == "Contract").ToList();
+        return View();
+    }
+
     // GET: Contracts/Download/5
     public async Task<IActionResult> DownloadAgreement(int id)
     {

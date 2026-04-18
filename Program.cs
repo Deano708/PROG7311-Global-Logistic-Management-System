@@ -14,6 +14,8 @@ namespace PROG7311GLMS
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            // Register application services
+            builder.Services.AddScoped<PROG7311GLMS.Service.ILogisticsFacade, PROG7311GLMS.Service.LogisticsFacade>();
 
             var app = builder.Build();
 
