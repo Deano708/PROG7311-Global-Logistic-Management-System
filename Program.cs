@@ -28,6 +28,9 @@ namespace PROG7311GLMS
             }
 
             app.UseHttpsRedirection();
+            // Serve static files (wwwroot) so CSS/JS and uploaded files are available
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseAuthorization();

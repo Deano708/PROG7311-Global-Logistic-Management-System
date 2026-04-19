@@ -2,10 +2,38 @@
 
 <h2>Register New Agreement</h2>
 
-<form asp-action="Create" method="post" enctype="multipart/form-data">
+@* Anti-forgery token and validation summary *@
+<h4 class="text-muted">Enter contract dates and upload the signed agreement.</h4>
+
+@* Display validation errors passed via TempData (e.g., from ModelState on POST) *@
+@if (TempData["ModelErrors"] != null)
+{
+    var errs = System.Text.Json.JsonSerializer.Deserialize<List<string>>(TempData["ModelErrors"].ToString());
+    <div class="alert alert-danger">
+        <strong>Validation errors:</strong>
+        <ul>
+            @foreach (var e in errs) { <li>@e</li> }
+        </ul>
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<form asp-action="Create" asp-controller="Contracts" method="post" enctype="multipart/form-data" id="contractForm">
+    @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group mb-3">
         <label asp-for="ClientId">Select Client</label>
-        <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientList"></select>
+        <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientList">
+            <option value="">-- Select Client --</option>
+        </select>
+        <span asp-validation-for="ClientId" class="text-danger"></span>
     </div>
 
     <div class="row">
@@ -19,6 +47,8 @@
         </div>
     </div>
 
+    @* ServiceLevel and manual Status selection removed. Status will be computed from start/end dates. *@
+
     <div class="form-group mt-3">
         <label>Upload Signed PDF Agreement</label>
         <input type="file" name="pdfFile" class="form-control" accept="application/pdf" />
@@ -26,3 +56,20 @@
 
     <button type="submit" class="btn btn-primary mt-4">Save Contract</button>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Simple client-side logging to help diagnose submit issues
+        (function(){
+            var form = document.getElementById('contractForm');
+            if(!form) return;
+            form.addEventListener('submit', function(e){
+                console.log('contractForm submit triggered');
+                // show disabled state briefly
+                var btn = form.querySelector('button[type=submit]');
+                if(btn){ btn.disabled = true; setTimeout(function(){ btn.disabled = false; }, 2000); }
+            });
+        })();
+    </script>
+}

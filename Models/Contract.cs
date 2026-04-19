@@ -21,11 +21,11 @@ public partial class Contract
 
     public int StatusId { get; set; }
 
-    public virtual Client Client { get; set; } = null!;
+    public virtual Client? Client { get; set; } = null!;
 
     public virtual ICollection<ServiceRequest> ServiceRequests { get; set; } = new List<ServiceRequest>();
 
-    public virtual Status Status { get; set; } = null!;
+    public virtual Status? Status { get; set; } = null!;
 }
 
 // Prototype partial class
