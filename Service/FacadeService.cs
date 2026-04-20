@@ -28,29 +28,22 @@ namespace PROG7311GLMS.Service
         // --- Validation & Logic ---
         public async Task<bool> CreateServiceRequest(ServiceRequest request)
         {
-            if (request == null)
+            // 1. Fetch the parent contract including its status
+            var contract = await _context.Contracts
+                .Include(c => c.Status)
+                .FirstOrDefaultAsync(c => c.ContractId == request.ContractId);
+
+            // 2. Strict Validation: Only "Active" status allowed
+            // We also check dates just in case the status hasn't been updated yet
+            if (contract == null ||
+                contract.Status.StatusName != "Active" ||
+                contract.EndDate < DateTime.Now)
             {
-                Notify("Request is null.");
+                // Log the denial or notify observers here if needed
                 return false;
             }
 
-            var contract = await _context.Contracts.FindAsync(request.ContractId);
-
-            if (contract == null)
-            {
-                Notify($"Request denied: Contract {request.ContractId} not found.");
-                return false;
-            }
-
-            var status = await _context.Statuses.FindAsync(contract.StatusId);
-
-            // Logic: Cannot create if Expired or On-Hold or contract has passed its end date
-            if (status == null || status.StatusName == "Expired" || status.StatusName == "On-Hold" || contract.EndDate < DateTime.Now)
-            {
-                Notify($"Request denied for Contract {contract.ContractId}: Contract is inactive.");
-                return false;
-            }
-
+            // 3. Save the request if validation passes
             _context.ServiceRequests.Add(request);
             await _context.SaveChangesAsync();
             return true;

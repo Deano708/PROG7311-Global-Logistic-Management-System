@@ -75,9 +75,10 @@
                                 <a asp-action="Duplicate" asp-route-id="@item.ContractId" class="btn btn-sm btn-outline-secondary" title="Clone Contract">
                                     Clone
                                 </a>
-                                <a asp-controller="ServiceRequests" asp-action="Create" asp-route-contractId="@item.ContractId" class="btn btn-sm btn-success">
-                                    + Request
-                                </a>
+                                <a asp-controller="ServiceRequests"
+                                   asp-action="Index"
+                                   asp-route-contractId="@item.ContractId"
+                                   class="btn btn-sm btn-success">+ Request</a>
                                 <form asp-action="Delete" asp-route-id="@item.ContractId" method="post" onsubmit="return confirm('Are you sure you want to delete this contract? This action cannot be undone.');" style="display:inline;">
                                     @Html.AntiForgeryToken()
                                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>

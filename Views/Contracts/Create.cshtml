@@ -1,75 +1,64 @@
 ﻿@model PROG7311GLMS.Models.Contract
 
-<h2>Register New Agreement</h2>
+<h4 class="text-muted">Enter contract details and upload the signed agreement.</h4>
 
-@* Anti-forgery token and validation summary *@
-<h4 class="text-muted">Enter contract dates and upload the signed agreement.</h4>
-
-@* Display validation errors passed via TempData (e.g., from ModelState on POST) *@
 @if (TempData["ModelErrors"] != null)
 {
     var errs = System.Text.Json.JsonSerializer.Deserialize<List<string>>(TempData["ModelErrors"].ToString());
     <div class="alert alert-danger">
         <strong>Validation errors:</strong>
         <ul>
-            @foreach (var e in errs) { <li>@e</li> }
+            @foreach (var e in errs)
+            {
+                <li>@e</li>
+            }
         </ul>
     </div>
-}
-@if (TempData["Error"] != null)
-{
-    <div class="alert alert-danger">@TempData["Error"]</div>
-}
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">@TempData["Success"]</div>
 }
 
 <form asp-action="Create" asp-controller="Contracts" method="post" enctype="multipart/form-data" id="contractForm">
     @Html.AntiForgeryToken()
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
     <div class="form-group mb-3">
-        <label asp-for="ClientId">Select Client</label>
+        <label asp-for="ClientId" class="fw-bold">Select Client</label>
         <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientList">
             <option value="">-- Select Client --</option>
         </select>
         <span asp-validation-for="ClientId" class="text-danger"></span>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <label asp-for="StartDate">Start Date</label>
-            <input asp-for="StartDate" type="date" class="form-control" />
-        </div>
-        <div class="col">
-            <label asp-for="EndDate">End Date</label>
-            <input asp-for="EndDate" type="date" class="form-control" />
-        </div>
+    <div class="form-group mb-3">
+        <label asp-for="ServiceLevel" class="fw-bold">Service Level Agreement (SLA)</label>
+        <input asp-for="ServiceLevel" class="form-control" placeholder="e.g. Priority Shipping" />
+        <span asp-validation-for="ServiceLevel" class="text-danger"></span>
     </div>
 
-    @* ServiceLevel and manual Status selection removed. Status will be computed from start/end dates. *@
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="StartDate" class="fw-bold">Start Date</label>
+            <input asp-for="StartDate" type="date" class="form-control" />
+            <span asp-validation-for="StartDate" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="EndDate" class="fw-bold">End Date</label>
+            <input asp-for="EndDate" type="date" class="form-control" />
+            <span asp-validation-for="EndDate" class="text-danger"></span>
+        </div>
+    </div>
 
     <div class="form-group mt-3">
-        <label>Upload Signed PDF Agreement</label>
+        <label class="fw-bold">Upload Signed PDF Agreement</label>
         <input type="file" name="pdfFile" class="form-control" accept="application/pdf" />
+        <small class="text-muted">File will be stored on the secure file server.</small>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-4">Save Contract</button>
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary px-4">Save Contract</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+    </div>
 </form>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-    <script>
-        // Simple client-side logging to help diagnose submit issues
-        (function(){
-            var form = document.getElementById('contractForm');
-            if(!form) return;
-            form.addEventListener('submit', function(e){
-                console.log('contractForm submit triggered');
-                // show disabled state briefly
-                var btn = form.querySelector('button[type=submit]');
-                if(btn){ btn.disabled = true; setTimeout(function(){ btn.disabled = false; }, 2000); }
-            });
-        })();
-    </script>
 }
