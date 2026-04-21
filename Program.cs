@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PROG7311GLMS.Models;
+using PROG7311GLMS.Service;
 
 namespace PROG7311GLMS
 {
@@ -16,6 +17,10 @@ namespace PROG7311GLMS
             builder.Services.AddControllersWithViews();
             // Register application services
             builder.Services.AddScoped<PROG7311GLMS.Service.ILogisticsFacade, PROG7311GLMS.Service.LogisticsFacade>();
+
+            builder.Services.AddHttpClient();
+
+            builder.Services.AddScoped<ILogisticsFacade, LogisticsFacade>();
 
             var app = builder.Build();
 

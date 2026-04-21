@@ -3,9 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http;
 using System.IO;
+using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace PROG7311GLMS.Service
 {
+    // DTO for JSON Deserialization
+    public class ExchangeRateResponse
+    {
+        public string result { get; set; }
+        public Dictionary<string, decimal> conversion_rates { get; set; }
+    }
+
     public interface ILogisticsFacade
     {
         Task<bool> CreateServiceRequest(ServiceRequest request);
@@ -17,9 +26,17 @@ namespace PROG7311GLMS.Service
     public class LogisticsFacade : ILogisticsFacade, IStatusSubject
     {
         private readonly GlmsContext _context;
+        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
         private readonly List<IStatusObserver> _observers = new();
 
-        public LogisticsFacade(GlmsContext context) { _context = context; }
+        // Updated Constructor with Injection
+        public LogisticsFacade(GlmsContext context, IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        {
+            _context = context;
+            _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
+        }
 
         // --- Observer Methods ---
         public void Attach(IStatusObserver observer) => _observers.Add(observer);
@@ -28,22 +45,33 @@ namespace PROG7311GLMS.Service
         // --- Validation & Logic ---
         public async Task<bool> CreateServiceRequest(ServiceRequest request)
         {
-            // 1. Fetch the parent contract including its status
+            // 1. Validate the Contract is Active
             var contract = await _context.Contracts
                 .Include(c => c.Status)
                 .FirstOrDefaultAsync(c => c.ContractId == request.ContractId);
 
-            // 2. Strict Validation: Only "Active" status allowed
-            // We also check dates just in case the status hasn't been updated yet
-            if (contract == null ||
-                contract.Status.StatusName != "Active" ||
-                contract.EndDate < DateTime.Now)
+            if (contract == null || contract.Status.StatusName != "Active" || contract.EndDate < DateTime.Now)
             {
-                // Log the denial or notify observers here if needed
+                Notify($"Alert: Attempted to add request to non-active contract ID {request.ContractId}");
                 return false;
             }
 
-            // 3. Save the request if validation passes
+            // 2. NEW FIX: Find the 'Pending' Status ID for ServiceRequests
+            var pendingStatus = await _context.Statuses
+                .FirstOrDefaultAsync(s => s.StatusName == "Pending" && s.Category == "ServiceRequest");
+
+            if (pendingStatus != null)
+            {
+                request.StatusId = pendingStatus.StatusId;
+            }
+            else
+            {
+                // Safety fallback: if 'Pending' is missing, find the first status in that category
+                var fallback = await _context.Statuses.FirstOrDefaultAsync(s => s.Category == "ServiceRequest");
+                if (fallback != null) request.StatusId = fallback.StatusId;
+            }
+
+            // 3. Save the request
             _context.ServiceRequests.Add(request);
             await _context.SaveChangesAsync();
             return true;
@@ -52,13 +80,11 @@ namespace PROG7311GLMS.Service
         // --- LINQ Filter Mechanism ---
         public IEnumerable<Contract> FilterContracts(DateTime start, DateTime end, int? statusId)
         {
-            // Include related navigation properties so views can access Client and Status without null refs
             var query = _context.Contracts
                 .Include(c => c.Client)
                 .Include(c => c.Status)
                 .AsQueryable();
 
-            // Use overlapping-range filter so contracts that intersect the requested range are returned
             query = query.Where(c => c.StartDate <= end && c.EndDate >= start);
 
             if (statusId.HasValue)
@@ -67,22 +93,46 @@ namespace PROG7311GLMS.Service
             return query.ToList();
         }
 
-        // --- Currency Conversion (External API) ---
+        // --- Currency Conversion (ExchangeRate-API Integration) ---
         public async Task<decimal> ConvertUsdToZar(decimal amountUsd)
         {
-            using var client = new HttpClient();
-            // Example using a free API like ExchangeRate-API or similar
-            var response = await client.GetStringAsync("https://api.exchangerate-api.com/v4/latest/USD");
-            // Logic to parse JSON and return (amountUsd * zarRate)
-            return amountUsd * 18.50m; // Mocked for brevity
+            try
+            {
+                var apiKey = _configuration["ExchangeRateApi:ApiKey"];
+                var baseUrl = _configuration["ExchangeRateApi:BaseUrl"];
+                var url = $"{baseUrl}{apiKey}/latest/USD";
+
+                var client = _httpClientFactory.CreateClient();
+                var response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var data = JsonSerializer.Deserialize<ExchangeRateResponse>(json);
+
+                    if (data?.result == "success" && data.conversion_rates.TryGetValue("ZAR", out decimal zarRate))
+                    {
+                        return amountUsd * zarRate;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // In production, log this with ILogger. For now, we fallback to a safe estimate.
+                Console.WriteLine($"Currency API Error: {ex.Message}");
+            }
+
+            // Fallback rate if the API is down or key is invalid (Standard ZAR/USD approx)
+            return amountUsd * 18.50m;
         }
 
-        // --- File Simulation ---
+        // --- File Storage Logic ---
         public async Task<string> UploadAgreement(IFormFile file)
         {
             if (file == null) return null;
-            var uploadsRoot = Path.Combine("wwwroot", "uploads");
-            Directory.CreateDirectory(uploadsRoot);
+
+            var uploadsRoot = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+            if (!Directory.Exists(uploadsRoot)) Directory.CreateDirectory(uploadsRoot);
 
             var safeFileName = Guid.NewGuid() + "_" + Path.GetFileName(file.FileName);
             var path = Path.Combine(uploadsRoot, safeFileName);
@@ -92,7 +142,8 @@ namespace PROG7311GLMS.Service
                 await file.CopyToAsync(stream);
             }
 
-            return path;
+            // Return relative path for database storage
+            return "/uploads/" + safeFileName;
         }
     }
 }
