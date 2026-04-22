@@ -1,11 +1,20 @@
+<h1 align="center">GLMS</h1>
+<br>
+
+
 Initial Class Diagram Design
 <img width="811" height="587" alt="CD1 drawio" src="https://github.com/user-attachments/assets/e41ee7f6-2539-4fe2-a7a7-d2eb1be00732" />
-
+<br>
 
 New Updated Class Diagram
 <img width="701" height="965" alt="CD New drawio" src="https://github.com/user-attachments/assets/9d9629d6-dbb4-4b30-9019-c7d20a5e7860" />
+<br>
 
 
+Unit Tests
+<img width="982" height="488" alt="UnitTests" src="https://github.com/user-attachments/assets/f5b4aba6-8120-4846-9e43-b84ad1e12e2b" />
+
+<br>
 
 SSMS SQL Script:
 
@@ -109,5 +118,10 @@ VALUES
 ('Completed', 'ServiceRequest', 'Service fulfilled, delivered, and finalized.'),
 ('Rejected', 'ServiceRequest', 'Request denied due to cost, compliance, or inactive contract.'),
 ('Cancelled', 'ServiceRequest', 'Request withdrawn by the logistics coordinator.');
+
+
+
+Declaration of AI Usage
+<img width="618" height="743" alt="References" src="https://github.com/user-attachments/assets/969f30ec-6483-4244-b052-7756ae4d943f" />
 
 
