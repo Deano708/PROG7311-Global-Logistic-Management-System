@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 //Title: Disclosure of AI Usage in my Assessment.
 //• Section: FacadeService.
+//• AI Tool: Gemini
 //• Purpose/intention : Design and syntax implementation of FacadeService, including the currency conversion method and LINQ filtering mechanism.
 //• Date(s) 19/04/2026 to 22/04/2026.
 //• https://gemini.google.com/app/3de15ef0f6ce635b. 
@@ -136,15 +137,16 @@ namespace PROG7311GLMS.Service
         // --- File Storage Logic ---
         public async Task<string> UploadAgreement(IFormFile file)
         {
-            
+            //Ensures the file is not null or empty.
             if (file == null || file.Length == 0) return null;
-            var extension = Path.GetExtension(file.FileName).ToLower();
-            var contentType = file.ContentType.ToLower();
 
-            // Only allow .pdf extension and the official PDF mime type
+            //Safely extract extension and content type
+            var extension = Path.GetExtension(file.FileName)?.ToLower() ?? "";
+            var contentType = file.ContentType?.ToLower() ?? "";
+
+            //Only allow .pdf extension and the official PDF mime type
             if (extension != ".pdf" || contentType != "application/pdf")
             {
-
                 return null;
             }
 
@@ -166,7 +168,6 @@ namespace PROG7311GLMS.Service
                 await file.CopyToAsync(stream);
             }
 
-            
             return "/uploads/" + safeFileName;
         }
     }

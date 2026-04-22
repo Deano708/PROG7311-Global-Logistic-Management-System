@@ -10,6 +10,7 @@ using System.Text.Json;
 
 //Title: Disclosure of AI Usage in my Assessment.
 //• Section: ContractsController.
+//• AI Tool: Gemini
 //• Purpose/intention : Design and syntax implementation of ContractsController, including the PDF upload and contract creation functionality.
 //• Date(s) 19/04/2026 to 22/04/2026.
 //• https://gemini.google.com/app/3de15ef0f6ce635b. 
