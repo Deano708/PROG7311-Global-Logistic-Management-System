@@ -1,0 +1,31 @@
+name: GLMS CI Pipeline
+
+# 1. When should this run?
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# 2. What should it do?
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # It starts a fresh Linux virtual machine
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4 # It "downloads" your code into the VM
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x # Matches your project version
+
+    - name: Restore Dependencies
+      run: dotnet restore
+
+    - name: Build Project
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Run Unit Tests
+      run: dotnet test --no-build --verbosity normal
