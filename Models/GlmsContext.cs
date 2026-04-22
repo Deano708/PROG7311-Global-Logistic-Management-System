@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
+
+//Title: Disclosure of AI Usage in my Assessment.
+//• Section: GlmsContext.
+//• Purpose/intention : Design and syntax implementation of GlmsContext, including the DbSet properties and OnModelCreating method.
+//• Date(s) 19/04/2026 to 22/04/2026.
+//• https://gemini.google.com/app/3de15ef0f6ce635b. 
+
+
+
 namespace PROG7311GLMS.Models;
 
 public partial class GlmsContext : DbContext
@@ -30,10 +39,7 @@ public partial class GlmsContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
     {
-        // Only configure the context here if no options were provided by DI.
-        // When using AddDbContext in Program.cs the options will be configured there
-        // (e.g. from appsettings.json). Leaving this guard prevents the hard-coded
-        // connection string from overriding the intended environment configuration.
+        
         if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=GLMS;Trusted_Connection=True;TrustServerCertificate=True;");

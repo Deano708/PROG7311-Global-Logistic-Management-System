@@ -3,6 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using PROG7311GLMS.Models;
 using PROG7311GLMS.Service;
 
+//Title: Disclosure of AI Usage in my Assessment.
+//• Section: ServiceRequestsController.
+//• Purpose/intention : Design and syntax implementation of ServiceRequestsController, including the USD to ZAR conversion and create service request functionality.
+//• Date(s) 19/04/2026 to 22/04/2026.
+//• https://gemini.google.com/app/3de15ef0f6ce635b. 
+
 public class ServiceRequestsController : Controller
 {
     private readonly ILogisticsFacade _facade;

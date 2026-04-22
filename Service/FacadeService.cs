@@ -6,6 +6,14 @@ using System.IO;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 
+//Title: Disclosure of AI Usage in my Assessment.
+//• Section: FacadeService.
+//• Purpose/intention : Design and syntax implementation of FacadeService, including the currency conversion method and LINQ filtering mechanism.
+//• Date(s) 19/04/2026 to 22/04/2026.
+//• https://gemini.google.com/app/3de15ef0f6ce635b. 
+
+
+
 namespace PROG7311GLMS.Service
 {
     // DTO for JSON Deserialization
@@ -56,7 +64,6 @@ namespace PROG7311GLMS.Service
                 return false;
             }
 
-            // 2. NEW FIX: Find the 'Pending' Status ID for ServiceRequests
             var pendingStatus = await _context.Statuses
                 .FirstOrDefaultAsync(s => s.StatusName == "Pending" && s.Category == "ServiceRequest");
 
@@ -71,7 +78,7 @@ namespace PROG7311GLMS.Service
                 if (fallback != null) request.StatusId = fallback.StatusId;
             }
 
-            // 3. Save the request
+            // Save the request
             _context.ServiceRequests.Add(request);
             await _context.SaveChangesAsync();
             return true;
