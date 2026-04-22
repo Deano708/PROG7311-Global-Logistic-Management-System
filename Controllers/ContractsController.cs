@@ -95,10 +95,19 @@ public class ContractsController : Controller
 
         try
         {
-            // Handle PDF upload
             if (pdfFile != null)
             {
-                contract.SignedAgreementFilePath = await _facade.UploadAgreement(pdfFile);
+                var filePath = await _facade.UploadAgreement(pdfFile);
+
+                if (filePath == null)
+                {
+                    ModelState.AddModelError("pdfFile", "Only PDF documents are allowed (Max 5MB).");
+                    // Re-populate ViewBags and return view
+                    ViewBag.ClientList = new SelectList(_context.Clients.ToList(), "ClientId", "Name");
+                    return View(contract);
+                }
+
+                contract.SignedAgreementFilePath = filePath;
             }
 
             _context.Add(contract);

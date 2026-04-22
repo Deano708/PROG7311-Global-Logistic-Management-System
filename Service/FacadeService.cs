@@ -136,8 +136,25 @@ namespace PROG7311GLMS.Service
         // --- File Storage Logic ---
         public async Task<string> UploadAgreement(IFormFile file)
         {
-            if (file == null) return null;
+            
+            if (file == null || file.Length == 0) return null;
+            var extension = Path.GetExtension(file.FileName).ToLower();
+            var contentType = file.ContentType.ToLower();
 
+            // Only allow .pdf extension and the official PDF mime type
+            if (extension != ".pdf" || contentType != "application/pdf")
+            {
+
+                return null;
+            }
+
+            //pdf file limited to 5MB
+            if (file.Length > 5 * 1024 * 1024)
+            {
+                return null;
+            }
+
+            //Physical Save Logic
             var uploadsRoot = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
             if (!Directory.Exists(uploadsRoot)) Directory.CreateDirectory(uploadsRoot);
 
@@ -149,7 +166,7 @@ namespace PROG7311GLMS.Service
                 await file.CopyToAsync(stream);
             }
 
-            // Return relative path for database storage
+            
             return "/uploads/" + safeFileName;
         }
     }

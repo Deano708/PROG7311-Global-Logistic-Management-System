@@ -49,8 +49,9 @@
 
     <div class="form-group mt-3">
         <label class="fw-bold">Upload Signed PDF Agreement</label>
-        <input type="file" name="pdfFile" class="form-control" accept="application/pdf" />
-        <small class="text-muted">File will be stored on the secure file server.</small>
+        <input type="file" name="pdfFile" class="form-control" accept=".pdf,application/pdf" />
+        <span class="text-danger" data-valmsg-for="pdfFile"></span>
+        <small class="text-muted">Only .pdf files are accepted.</small>
     </div>
 
     <div class="mt-4">
