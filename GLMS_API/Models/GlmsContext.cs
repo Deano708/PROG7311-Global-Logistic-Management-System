@@ -1,4 +1,8 @@
 ﻿using System.Reflection.Emit;
+using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using PROG7311GLMS_API.Models.Client;
 
 namespace GLMS_API.Models
 {
