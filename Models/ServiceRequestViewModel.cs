@@ -12,10 +12,5 @@
         public DateTime? CreatedAt { get; set; }
     }
 
-    public class CreateServiceRequestDto
-    {
-        public int ContractId { get; set; }
-        public string Description { get; set; } = "";
-        public decimal CostUsd { get; set; }
-    }
+    
 }

@@ -6,12 +6,11 @@
 // =============================================================
 
 using GLMS_API.DTOs;
-using PROG7311GLMS.Models;
-using PROG7311GLMS.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using PROG7311GLMS.Models;
+using PROG7311GLMS.Service;
 namespace PROG7311GLMS.Controllers;
 
 [Authorize]
