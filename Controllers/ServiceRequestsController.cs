@@ -1,79 +1,68 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿// =============================================================
+//  GLMS_MVC / Controllers / ServiceRequestsController.cs
+//
+//  No database access – all operations go through GlmsApiClient.
+// =============================================================
+
+using GLMS_API.DTOs;
 using PROG7311GLMS.Models;
 using PROG7311GLMS.Service;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-//Title: Disclosure of AI Usage in my Assessment.
-//• Section: ServiceRequestsController.
-//• AI Tool: Gemini
-//• Purpose/intention : Design and syntax implementation of ServiceRequestsController, including the USD to ZAR conversion and create service request functionality.
-//• Date(s) 19/04/2026 to 22/04/2026.
-//• https://gemini.google.com/app/3de15ef0f6ce635b. 
 
+namespace GLMS_MVC.Controllers;
+
+[Authorize]
 public class ServiceRequestsController : Controller
 {
-    private readonly ILogisticsFacade _facade;
-    private readonly GlmsContext _context;
+    private readonly GlmsApiClient _api;
 
-    public ServiceRequestsController(ILogisticsFacade facade, GlmsContext context)
-    {
-        _facade = facade;
-        _context = context;
-    }
+    public ServiceRequestsController(GlmsApiClient api) => _api = api;
 
-    // GET: ServiceRequests/Index?contractId=5
+    // GET: /ServiceRequests/Index?contractId=5
     [HttpGet]
     public async Task<IActionResult> Index(int contractId)
     {
-        var contract = await _context.Contracts
-            .Include(c => c.Client)
-            .Include(c => c.Status)
-            .Include(c => c.ServiceRequests)
-                .ThenInclude(sr => sr.Status)
-            .FirstOrDefaultAsync(c => c.ContractId == contractId);
-
+        var contract = await _api.GetContractAsync(contractId);
         if (contract == null) return NotFound();
 
-        // Pass the contract to the view; the view will use contract.ServiceRequests for the list
-        // and create a new ServiceRequest object for the form.
-        ViewBag.Statuses = _context.Statuses.Where(s => s.Category == "ServiceRequest").ToList();
-        return View(contract);
+        var requests = await _api.GetServiceRequestsAsync(contractId);
+        var statuses = await _api.GetStatusesAsync("ServiceRequest");
+
+        ViewBag.Statuses = statuses;
+
+        var vm = new ContractServiceRequestsViewModel
+        {
+            Contract = contract,
+            ServiceRequests = requests,
+            NewRequest = new CreateServiceRequestDto { ContractId = contractId }
+        };
+
+        return View(vm);
     }
 
+    // POST: /ServiceRequests/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(ServiceRequest request)
+    public async Task<IActionResult> Create(CreateServiceRequestDto request)
     {
-        // Always calculate ZAR via Facade before attempting save
-        request.CostZar = await _facade.ConvertUsdToZar(request.CostUsd);
+        var (success, _) = await _api.CreateServiceRequestAsync(request);
 
-        // Attempt creation
-        bool isCreated = await _facade.CreateServiceRequest(request);
-
-        if (!isCreated)
-        {
-            // Use TempData to send the warning back to the Index page
-            TempData["Error"] = "Validation Failed: Requests can only be added to Active contracts.";
-        }
-        else
-        {
-            TempData["Success"] = "Service Request successfully logged.";
-        }
+        TempData[success ? "Success" : "Error"] = success
+            ? "Service Request successfully logged."
+            : "Validation Failed: Requests can only be added to Active contracts.";
 
         return RedirectToAction("Index", new { contractId = request.ContractId });
     }
 
+    // POST: /ServiceRequests/Delete
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(int id, int contractId)
     {
-        var request = await _context.ServiceRequests.FindAsync(id);
-        if (request != null)
-        {
-            _context.ServiceRequests.Remove(request);
-            await _context.SaveChangesAsync();
-            TempData["Success"] = "Request removed.";
-        }
-        return RedirectToAction("Index", new { contractId = contractId });
+        await _api.DeleteServiceRequestAsync(id);
+        TempData["Success"] = "Request removed.";
+        return RedirectToAction("Index", new { contractId });
     }
 }

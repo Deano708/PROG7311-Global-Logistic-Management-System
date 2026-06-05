@@ -1,209 +1,150 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+﻿// =============================================================
+//  GLMS_MVC / Controllers / ContractsController.cs
+//
+//  Replaces ALL direct EF Core / Facade calls with GlmsApiClient.
+//  Views remain unchanged (same model shapes via ViewModels.cs).
+// =============================================================
+
+using GLMS_API.DTOs;
 using PROG7311GLMS.Models;
 using PROG7311GLMS.Service;
-using System.Linq;
-using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-//Title: Disclosure of AI Usage in my Assessment.
-//• Section: ContractsController.
-//• AI Tool: Gemini
-//• Purpose/intention : Design and syntax implementation of ContractsController, including the PDF upload and contract creation functionality.
-//• Date(s) 19/04/2026 to 22/04/2026.
-//• https://gemini.google.com/app/3de15ef0f6ce635b. 
+namespace PROG7311GLMS.Controllers;
 
-
+[Authorize]
 public class ContractsController : Controller
 {
-    private readonly ILogisticsFacade _facade;
-    private readonly GlmsContext _context;
-    private readonly ILogger<ContractsController> _logger;
+    private readonly GlmsApiClient _api;
 
-    public ContractsController(ILogisticsFacade facade, GlmsContext context, ILogger<ContractsController> logger)
+    public ContractsController(GlmsApiClient api) => _api = api;
+
+    // GET: /Contracts
+    public async Task<IActionResult> Index(DateTime? startDate, DateTime? endDate, int? statusId)
     {
-        _facade = facade;
-        _context = context;
-        _logger = logger;
-    }
-
-    // GET: Contracts (with Search & Filter)
-    public IActionResult Index(DateTime? startDate, DateTime? endDate, int? statusId)
-    {
-        // Use the Facade to perform the LINQ filtering logic
-        var contracts = _facade.FilterContracts(
-            startDate ?? DateTime.MinValue,
-            endDate ?? DateTime.MaxValue,
-            statusId
-        );
-
-        ViewBag.Statuses = _context.Statuses.Where(s => s.Category == "Contract").ToList();
+        var contracts = await _api.GetContractsAsync(startDate, endDate, statusId);
+        ViewBag.Statuses = await _api.GetStatusesAsync("Contract");
         return View(contracts);
     }
 
-    // POST: Contracts/Create
+    // GET: /Contracts/Create
+    [HttpGet]
+    public async Task<IActionResult> Create()
+    {
+        await PopulateCreateViewBags();
+        return View(new CreateContractDto());
+    }
+
+    // POST: /Contracts/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(Contract contract, IFormFile pdfFile)
+    public async Task<IActionResult> Create(CreateContractDto dto, IFormFile? pdfFile)
     {
-        // Compute contract status based on dates BEFORE validating ModelState so StatusId isn't treated as missing
-        if (contract != null)
-        {
-            var today = DateTime.Now.Date;
-            string computedName = "Active";
-            if (today < contract.StartDate.Date)
-                computedName = "On-Hold";
-            else if (today > contract.EndDate.Date)
-                computedName = "Expired";
-
-            var status = _context.Statuses.FirstOrDefault(s => s.Category == "Contract" && s.StatusName == computedName);
-            if (status != null)
-            {
-                contract.StatusId = status.StatusId;
-                // Remove any modelstate entries for StatusId so validation uses the computed value
-                if (ModelState.ContainsKey(nameof(contract.StatusId)))
-                    ModelState.Remove(nameof(contract.StatusId));
-            }
-        }
-
-        // Ensure a client was selected
-        if (contract == null || contract.ClientId == 0)
-        {
+        if (dto.ClientId == 0)
             ModelState.AddModelError("ClientId", "Client is required.");
-        }
 
-        // Validate model now
+        if (dto.EndDate <= dto.StartDate)
+            ModelState.AddModelError("EndDate", "End Date must be after Start Date.");
+
         if (!ModelState.IsValid)
         {
-            var modelErrors = ModelState.Values
-                .SelectMany(v => v.Errors)
-                .Select(e => e.ErrorMessage)
-                .Where(m => !string.IsNullOrEmpty(m))
-                .ToList();
-
-            if (modelErrors.Any())
-            {
-                TempData["ModelErrors"] = JsonSerializer.Serialize(modelErrors);
-                _logger.LogWarning("Contract Create validation failed: {Errors}", string.Join("; ", modelErrors));
-            }
-
-            ViewBag.ClientList = new SelectList(_context.Clients.ToList(), "ClientId", "Name", contract?.ClientId);
-            ViewBag.Statuses = _context.Statuses.Where(s => s.Category == "Contract").ToList();
-            return View(contract);
+            await PopulateCreateViewBags(dto.ClientId);
+            return View(dto);
         }
 
         try
         {
-            if (pdfFile != null)
+            ContractDto? created;
+            if (pdfFile != null && pdfFile.Length > 0)
             {
-                var filePath = await _facade.UploadAgreement(pdfFile);
-
-                if (filePath == null)
-                {
-                    ModelState.AddModelError("pdfFile", "Only PDF documents are allowed (Max 5MB).");
-                    // Re-populate ViewBags and return view
-                    ViewBag.ClientList = new SelectList(_context.Clients.ToList(), "ClientId", "Name");
-                    return View(contract);
-                }
-
-                contract.SignedAgreementFilePath = filePath;
+                await using var stream = pdfFile.OpenReadStream();
+                created = await _api.CreateContractAsync(dto, stream, pdfFile.FileName);
+            }
+            else
+            {
+                created = await _api.CreateContractAsync(dto);
             }
 
-            _context.Add(contract);
-            await _context.SaveChangesAsync();
+            if (created == null)
+            {
+                ModelState.AddModelError("pdfFile", "Only PDF documents are allowed (Max 5MB).");
+                await PopulateCreateViewBags(dto.ClientId);
+                return View(dto);
+            }
+
             TempData["Success"] = "Contract saved successfully.";
             return RedirectToAction(nameof(Index));
         }
-        catch (Exception ex)
+        catch (HttpRequestException ex)
         {
-            _logger.LogError(ex, "Error saving contract");
             TempData["Error"] = "Failed to save contract: " + ex.Message;
-            TempData["ErrorDetails"] = ex.ToString();
-            ViewBag.ClientList = new SelectList(_context.Clients.ToList(), "ClientId", "Name", contract?.ClientId);
-            ViewBag.Statuses = _context.Statuses.Where(s => s.Category == "Contract").ToList();
-            return View(contract);
+            await PopulateCreateViewBags(dto.ClientId);
+            return View(dto);
         }
     }
 
-    // GET: Contracts/Create
-    [HttpGet]
-    public IActionResult Create()
-    {
-        ViewBag.ClientList = new SelectList(_context.Clients.ToList(), "ClientId", "Name");
-        ViewBag.Statuses = _context.Statuses.Where(s => s.Category == "Contract").ToList();
-        return View();
-    }
-
-    // GET: Contracts/Download/5
+    // GET: /Contracts/Download/5
     public async Task<IActionResult> DownloadAgreement(int id)
     {
-        var contract = await _context.Contracts.FindAsync(id);
-        if (contract == null || string.IsNullOrEmpty(contract.SignedAgreementFilePath))
-            return NotFound();
-
-        var memory = new MemoryStream();
-        using (var stream = new FileStream(contract.SignedAgreementFilePath, FileMode.Open))
-        {
-            await stream.CopyToAsync(memory);
-        }
-        memory.Position = 0;
-
-        // Return the file to the browser
-        return File(memory, "application/pdf", $"Contract_{id}.pdf");
+        var bytes = await _api.DownloadAgreementAsync(id);
+        if (bytes == null) return NotFound();
+        return File(bytes, "application/pdf", $"Contract_{id}.pdf");
     }
 
-    // Prototype Pattern: Cloning a contract
+    // POST: /Contracts/Duplicate/5  (linked from view button)
     public async Task<IActionResult> Duplicate(int id)
     {
-        var existing = await _context.Contracts.FindAsync(id);
-        if (existing == null) return NotFound();
-
-        // Use the Prototype Clone method
-        var newContract = (Contract)existing.Clone();
-
-        _context.Contracts.Add(newContract);
-        await _context.SaveChangesAsync();
+        var clone = await _api.DuplicateContractAsync(id);
+        if (clone == null) return NotFound();
+        TempData["Success"] = "Contract cloned successfully.";
         return RedirectToAction(nameof(Index));
     }
 
-    // GET: Contracts/Delete/5
-    public async Task<IActionResult> Delete(int? id)
+    // PATCH: /Contracts/UpdateStatus  (called via form post from UI)
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateStatus(int id, string statusName)
     {
-        if (id == null) return NotFound();
+        var updated = await _api.PatchContractStatusAsync(id, statusName);
+        if (updated == null)
+        {
+            TempData["Error"] = "Could not update status.";
+            return RedirectToAction(nameof(Index));
+        }
+        TempData["Success"] = $"Contract status updated to {statusName}.";
+        return RedirectToAction(nameof(Index));
+    }
 
-        var contract = await _context.Contracts
-            .Include(c => c.Client)
-            .Include(c => c.Status)
-            .FirstOrDefaultAsync(m => m.ContractId == id);
-
+    // GET: /Contracts/Delete/5
+    public async Task<IActionResult> Delete(int id)
+    {
+        var contract = await _api.GetContractAsync(id);
         if (contract == null) return NotFound();
-
         return View(contract);
     }
 
-    // POST: Contracts/Delete/5
+    // POST: /Contracts/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
-        try
-        {
-            var contract = await _context.Contracts.FindAsync(id);
-            if (contract != null)
-            {
-                _context.Contracts.Remove(contract);
-                await _context.SaveChangesAsync();
-                TempData["Success"] = "Contract deleted successfully.";
-            }
-        }
-        catch (Exception ex)
-        {
-            TempData["Error"] = "Unable to delete contract. It might be linked to existing Service Requests.";
-            _logger.LogError(ex, "Error deleting contract {Id}", id);
-        }
+        var success = await _api.DeleteContractAsync(id);
+        TempData[success ? "Success" : "Error"] = success
+            ? "Contract deleted successfully."
+            : "Unable to delete contract – it may have linked service requests.";
+
         return RedirectToAction(nameof(Index));
     }
 
+    // ── Helpers ───────────────────────────────────────────────
+
+    private async Task PopulateCreateViewBags(int selectedClientId = 0)
+    {
+        var clients = await _api.GetClientsAsync();
+        var statuses = await _api.GetStatusesAsync("Contract");
+        ViewBag.ClientList = new SelectList(clients, "ClientId", "Name", selectedClientId);
+        ViewBag.Statuses = statuses;
+    }
 }

@@ -1,52 +1,87 @@
-using Microsoft.EntityFrameworkCore;
-using PROG7311GLMS.Models;
+// =============================================================
+//  GLMS_MVC / Program.cs
+//
+//  The updated MVC no longer references EF Core or GlmsContext.
+//  All data comes from the GLMS Web API via GlmsApiClient.
+// =============================================================
+
 using PROG7311GLMS.Service;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace PROG7311GLMS
+var builder = WebApplication.CreateBuilder(args);
+
+// ── 1. MVC ────────────────────────────────────────────────────
+builder.Services.AddControllersWithViews();
+
+// ── 2. Session (stores the Firebase token between requests) ───
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
 {
-    public class Program
+    options.IdleTimeout = TimeSpan.FromHours(8);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+// ── 3. Cookie Authentication (guards MVC routes) ──────────────
+//  The user is "authenticated" in the MVC once they have a valid
+//  Firebase session stored.  A simple middleware check (see below)
+//  redirects unauthenticated requests to /Auth/Login.
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
     {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+        options.LoginPath = "/Auth/Login";
+        options.LogoutPath = "/Auth/Logout";
+    });
 
-            builder.Services.AddDbContext<GlmsContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); //?? throw new InvalidOperationException("Connection string 'GlmsContext' not found.")));
+builder.Services.AddAuthorization();
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
-            // Register application services
-            builder.Services.AddScoped<PROG7311GLMS.Service.ILogisticsFacade, PROG7311GLMS.Service.LogisticsFacade>();
+// ── 4. Typed HttpClient for the GLMS API ─────────────────────
+builder.Services.AddHttpClient<GlmsApiClient>(client =>
+{
+    client.BaseAddress = new Uri(
+        builder.Configuration["GlmsApi:BaseUrl"] ?? "https://localhost:7100/");
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+});
 
-            builder.Services.AddHttpClient();
+// ─────────────────────────────────────────────────────────────
+var app = builder.Build();
 
-            builder.Services.AddScoped<ILogisticsFacade, LogisticsFacade>();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            // Serve static files (wwwroot) so CSS/JS and uploaded files are available
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.MapStaticAssets();
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
-                .WithStaticAssets();
-
-            app.Run();
-        }
-    }
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseSession();
+app.UseAuthentication();
+
+// ── Firebase session guard ────────────────────────────────────
+// If the user hits any route other than Auth/*, redirect to login
+// unless they have a Firebase token in session.
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.Value ?? "";
+    bool isAuthPath = path.StartsWith("/Auth", StringComparison.OrdinalIgnoreCase);
+    bool hasToken = context.Session.Keys.Contains("FirebaseToken");
+
+    if (!isAuthPath && !hasToken)
+    {
+        context.Response.Redirect($"/Auth/Login?returnUrl={Uri.EscapeDataString(path)}");
+        return;
+    }
+    await next();
+});
+
+app.UseAuthorization();
+
+app.MapStaticAssets();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Contracts}/{action=Index}/{id?}")
+   .WithStaticAssets();
+
+app.Run();
