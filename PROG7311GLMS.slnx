@@ -1,5 +1,4 @@
 <Solution>
-  <Project Path="../PROG7311GLMS.Tests/PROG7311GLMS.Tests.csproj" Id="58d99517-1e8a-4c15-b835-6bb3ff6b00f0" />
   <Project Path="GLMS_API/GLMS_API.csproj" Id="9367013a-25c5-4883-9f9b-51f21cf71334" />
   <Project Path="PROG7311 GLMS MVC/PROG7311GLMS.csproj" />
 </Solution>

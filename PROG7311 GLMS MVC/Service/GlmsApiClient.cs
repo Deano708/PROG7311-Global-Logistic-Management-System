@@ -6,7 +6,7 @@
 //  Firebase Bearer token from the current user's session.
 // =============================================================
 
-using GLMS_API.DTOs;
+
 using PROG7311GLMS.Models;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http.Headers;
@@ -183,6 +183,7 @@ public class GlmsApiClient
         if (!response.IsSuccessStatusCode) return null;
         return await Deserialize<FirebaseVerifyResult>(response);
     }
+
 
     // ── Helpers ───────────────────────────────────────────────
 

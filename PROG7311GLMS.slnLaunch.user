@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "API plus MVC startup",
+    "Projects": [
+      {
+        "Path": "GLMS_API\\GLMS_API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "PROG7311 GLMS MVC\\PROG7311GLMS.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

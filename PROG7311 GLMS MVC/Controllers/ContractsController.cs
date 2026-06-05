@@ -5,13 +5,14 @@
 //  Views remain unchanged (same model shapes via ViewModels.cs).
 // =============================================================
 
-using GLMS_API.DTOs;
+using PROG7311GLMS.Models;
+using PROG7311GLMS.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using PROG7311GLMS.Models;
-using PROG7311GLMS.Service;
-namespace PROG7311GLMS.Controllers;
+
+
+namespace GLMS_MVC.Controllers;
 
 [Authorize]
 public class ContractsController : Controller
@@ -33,13 +34,13 @@ public class ContractsController : Controller
     public async Task<IActionResult> Create()
     {
         await PopulateCreateViewBags();
-        return View(new Models.CreateContractDto());
+        return View(new CreateContractDto());
     }
 
     // POST: /Contracts/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(Models.CreateContractDto dto, IFormFile? pdfFile)
+    public async Task<IActionResult> Create(CreateContractDto dto, IFormFile? pdfFile)
     {
         if (dto.ClientId == 0)
             ModelState.AddModelError("ClientId", "Client is required.");
@@ -55,7 +56,7 @@ public class ContractsController : Controller
 
         try
         {
-            Models.ContractDto? created;
+            ContractDto? created;
             if (pdfFile != null && pdfFile.Length > 0)
             {
                 await using var stream = pdfFile.OpenReadStream();

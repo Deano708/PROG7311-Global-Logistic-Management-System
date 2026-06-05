@@ -1,0 +1,881 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "GLMS API",
+    "description": "Global Logistics Management System – REST API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Auth/verify": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FirebaseTokenDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FirebaseTokenDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FirebaseTokenDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Contracts": {
+      "get": {
+        "tags": [
+          "Contracts"
+        ],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "statusId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ContractDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Contracts"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ClientId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ServiceLevel": {
+                    "type": "string"
+                  },
+                  "StartDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "EndDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "pdfFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "ClientId": {
+                  "style": "form"
+                },
+                "ServiceLevel": {
+                  "style": "form"
+                },
+                "StartDate": {
+                  "style": "form"
+                },
+                "EndDate": {
+                  "style": "form"
+                },
+                "pdfFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContractDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Contracts/{id}": {
+      "get": {
+        "tags": [
+          "Contracts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContractDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Contracts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Contracts/{id}/status": {
+      "patch": {
+        "tags": [
+          "Contracts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchContractStatusDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchContractStatusDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchContractStatusDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContractDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Contracts/{id}/duplicate": {
+      "post": {
+        "tags": [
+          "Contracts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContractDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Contracts/{id}/agreement": {
+      "get": {
+        "tags": [
+          "Contracts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Contracts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pdfFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "pdfFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContractDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Lookups/clients": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClientDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Lookups/statuses": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "Contract"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StatusDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ServiceRequests": {
+      "get": {
+        "tags": [
+          "ServiceRequests"
+        ],
+        "parameters": [
+          {
+            "name": "contractId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ServiceRequestDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ServiceRequests"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceRequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Client Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ServiceRequests/{id}": {
+      "delete": {
+        "tags": [
+          "ServiceRequests"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ServiceRequests/convert": {
+      "get": {
+        "tags": [
+          "ServiceRequests"
+        ],
+        "parameters": [
+          {
+            "name": "usd",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ClientDto": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContractDto": {
+        "type": "object",
+        "properties": {
+          "contractId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "clientName": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "serviceLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "statusName": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "signedAgreementPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateServiceRequestDto": {
+        "type": "object",
+        "properties": {
+          "contractId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "costUsd": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FirebaseTokenDto": {
+        "type": "object",
+        "properties": {
+          "idToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatchContractStatusDto": {
+        "type": "object",
+        "properties": {
+          "statusName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ServiceRequestDto": {
+        "type": "object",
+        "properties": {
+          "serviceRequestId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "costUsd": {
+            "type": "number",
+            "format": "double"
+          },
+          "costZar": {
+            "type": "number",
+            "format": "double"
+          },
+          "statusName": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contractId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatusDto": {
+        "type": "object",
+        "properties": {
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusName": {
+            "type": "string",
+            "nullable": true
+          },
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Paste your Firebase ID token: Bearer {token}",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

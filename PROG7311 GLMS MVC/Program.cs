@@ -42,7 +42,13 @@ builder.Services.AddHttpClient<GlmsApiClient>(client =>
     client.BaseAddress = new Uri(
         builder.Configuration["GlmsApi:BaseUrl"] ?? "https://localhost:7100/");
     client.DefaultRequestHeaders.Add("Accept", "application/json");
-});
+})
+.ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+{
+    // Trust the self-signed dev certificate in local development
+    ServerCertificateCustomValidationCallback =
+        HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+}); ;
 
 // ─────────────────────────────────────────────────────────────
 var app = builder.Build();

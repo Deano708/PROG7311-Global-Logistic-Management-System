@@ -4,12 +4,11 @@
 //  No database access – all operations go through GlmsApiClient.
 // =============================================================
 
-using GLMS_API.DTOs;
-using PROG7311GLMS.Models;
-using PROG7311GLMS.Service;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using PROG7311GLMS.Models;
+using PROG7311GLMS.Service;
 
 namespace GLMS_MVC.Controllers;
 
@@ -36,7 +35,7 @@ public class ServiceRequestsController : Controller
         {
             Contract = contract,
             ServiceRequests = requests,
-            NewRequest = new PROG7311GLMS.Models.CreateServiceRequestDto { ContractId = contractId }
+            NewRequest = new CreateServiceRequestDto { ContractId = contractId }
         };
 
         return View(vm);
@@ -45,7 +44,7 @@ public class ServiceRequestsController : Controller
     // POST: /ServiceRequests/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(PROG7311GLMS.Models.CreateServiceRequestDto request)
+    public async Task<IActionResult> Create(CreateServiceRequestDto request)
     {
         var (success, _) = await _api.CreateServiceRequestAsync(request);
 
