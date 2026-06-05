@@ -36,7 +36,7 @@ public class ServiceRequestsController : Controller
         {
             Contract = contract,
             ServiceRequests = requests,
-            NewRequest = new CreateServiceRequestDto { ContractId = contractId }
+            NewRequest = new PROG7311GLMS.Models.CreateServiceRequestDto { ContractId = contractId }
         };
 
         return View(vm);
@@ -45,7 +45,7 @@ public class ServiceRequestsController : Controller
     // POST: /ServiceRequests/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(CreateServiceRequestDto request)
+    public async Task<IActionResult> Create(PROG7311GLMS.Models.CreateServiceRequestDto request)
     {
         var (success, _) = await _api.CreateServiceRequestAsync(request);
 

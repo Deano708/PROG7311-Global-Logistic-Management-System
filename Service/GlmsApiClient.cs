@@ -44,7 +44,7 @@ public class GlmsApiClient
 
     // ── Contracts ─────────────────────────────────────────────
 
-    public async Task<List<ContractDto>> GetContractsAsync(
+    public async Task<List<Models.ContractDto>> GetContractsAsync(
         DateTime? startDate = null, DateTime? endDate = null, int? statusId = null)
     {
         AttachToken();
@@ -55,20 +55,20 @@ public class GlmsApiClient
 
         var response = await _http.GetAsync($"api/contracts{query}");
         response.EnsureSuccessStatusCode();
-        return await Deserialize<List<ContractDto>>(response) ?? new();
+        return await Deserialize<List<Models.ContractDto>>(response) ?? new();
     }
 
-    public async Task<ContractDto?> GetContractAsync(int id)
+    public async Task<Models.ContractDto?> GetContractAsync(int id)
     {
         AttachToken();
         var response = await _http.GetAsync($"api/contracts/{id}");
         if (response.StatusCode == System.Net.HttpStatusCode.NotFound) return null;
         response.EnsureSuccessStatusCode();
-        return await Deserialize<ContractDto>(response);
+        return await Deserialize<Models.ContractDto>(response);
     }
 
-    public async Task<ContractDto?> CreateContractAsync(
-        CreateContractDto dto, Stream? pdfStream = null, string? pdfFileName = null)
+    public async Task<Models.ContractDto?> CreateContractAsync(
+        Models.CreateContractDto dto, Stream? pdfStream = null, string? pdfFileName = null)
     {
         AttachToken();
         using var form = new MultipartFormDataContent();
@@ -86,10 +86,10 @@ public class GlmsApiClient
 
         var response = await _http.PostAsync("api/contracts", form);
         response.EnsureSuccessStatusCode();
-        return await Deserialize<ContractDto>(response);
+        return await Deserialize<Models.ContractDto>(response);
     }
 
-    public async Task<ContractDto?> PatchContractStatusAsync(int id, string statusName)
+    public async Task<Models.ContractDto?> PatchContractStatusAsync(int id, string statusName)
     {
         AttachToken();
         var body = JsonSerializer.Serialize(new { statusName });
@@ -97,15 +97,15 @@ public class GlmsApiClient
         var response = await _http.PatchAsync($"api/contracts/{id}/status", content);
         if (response.StatusCode == System.Net.HttpStatusCode.NotFound) return null;
         response.EnsureSuccessStatusCode();
-        return await Deserialize<ContractDto>(response);
+        return await Deserialize<Models.ContractDto>(response);
     }
 
-    public async Task<ContractDto?> DuplicateContractAsync(int id)
+    public async Task<Models.ContractDto?> DuplicateContractAsync(int id)
     {
         AttachToken();
         var response = await _http.PostAsync($"api/contracts/{id}/duplicate", null);
         response.EnsureSuccessStatusCode();
-        return await Deserialize<ContractDto>(response);
+        return await Deserialize<Models.ContractDto>(response);
     }
 
     public async Task<bool> DeleteContractAsync(int id)
@@ -125,16 +125,16 @@ public class GlmsApiClient
 
     // ── Service Requests ──────────────────────────────────────
 
-    public async Task<List<ServiceRequestDto>> GetServiceRequestsAsync(int contractId)
+    public async Task<List<Models.ServiceRequestDto>> GetServiceRequestsAsync(int contractId)
     {
         AttachToken();
         var response = await _http.GetAsync($"api/servicerequests?contractId={contractId}");
         response.EnsureSuccessStatusCode();
-        return await Deserialize<List<ServiceRequestDto>>(response) ?? new();
+        return await Deserialize<List<Models.ServiceRequestDto>>(response) ?? new();
     }
 
-    public async Task<(bool success, ServiceRequestDto? dto)> CreateServiceRequestAsync(
-        CreateServiceRequestDto dto)
+    public async Task<(bool success, Models.ServiceRequestDto? dto)> CreateServiceRequestAsync(
+        Models.CreateServiceRequestDto dto)
     {
         AttachToken();
         var body = JsonSerializer.Serialize(dto);
@@ -145,7 +145,7 @@ public class GlmsApiClient
             return (false, null);
 
         response.EnsureSuccessStatusCode();
-        return (true, await Deserialize<ServiceRequestDto>(response));
+        return (true, await Deserialize<Models.ServiceRequestDto>(response));
     }
 
     public async Task<bool> DeleteServiceRequestAsync(int id)
@@ -157,20 +157,20 @@ public class GlmsApiClient
 
     // ── Lookups ───────────────────────────────────────────────
 
-    public async Task<List<ClientDto>> GetClientsAsync()
+    public async Task<List<Models.ClientDto>> GetClientsAsync()
     {
         AttachToken();
         var response = await _http.GetAsync("api/lookups/clients");
         response.EnsureSuccessStatusCode();
-        return await Deserialize<List<ClientDto>>(response) ?? new();
+        return await Deserialize<List<Models.ClientDto>>(response) ?? new();
     }
 
-    public async Task<List<StatusDto>> GetStatusesAsync(string category)
+    public async Task<List<Models.StatusDto>> GetStatusesAsync(string category)
     {
         AttachToken();
         var response = await _http.GetAsync($"api/lookups/statuses?category={category}");
         response.EnsureSuccessStatusCode();
-        return await Deserialize<List<StatusDto>>(response) ?? new();
+        return await Deserialize<List<Models.StatusDto>>(response) ?? new();
     }
 
     // ── Auth ──────────────────────────────────────────────────

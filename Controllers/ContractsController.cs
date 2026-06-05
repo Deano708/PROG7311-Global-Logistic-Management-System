@@ -33,13 +33,13 @@ public class ContractsController : Controller
     public async Task<IActionResult> Create()
     {
         await PopulateCreateViewBags();
-        return View(new CreateContractDto());
+        return View(new Models.CreateContractDto());
     }
 
     // POST: /Contracts/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(CreateContractDto dto, IFormFile? pdfFile)
+    public async Task<IActionResult> Create(Models.CreateContractDto dto, IFormFile? pdfFile)
     {
         if (dto.ClientId == 0)
             ModelState.AddModelError("ClientId", "Client is required.");
@@ -55,7 +55,7 @@ public class ContractsController : Controller
 
         try
         {
-            ContractDto? created;
+            Models.ContractDto? created;
             if (pdfFile != null && pdfFile.Length > 0)
             {
                 await using var stream = pdfFile.OpenReadStream();

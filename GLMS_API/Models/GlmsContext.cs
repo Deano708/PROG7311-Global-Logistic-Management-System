@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using PROG7311GLMS_API.Models.Client;
+using GLMS_API.Models;
 
 namespace GLMS_API.Models
 {
