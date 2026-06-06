@@ -1,65 +1,116 @@
-﻿@model PROG7311GLMS.Models.Contract
+﻿@* Views/Contracts/Create.cshtml *@
+@model PROG7311GLMS.Models.CreateContractDto
 
-<h4 class="text-muted">Enter contract details and upload the signed agreement.</h4>
+@{
+    // Default dates: today → today + 1 year
+    // Use the model value if it was already set (e.g. on validation failure postback),
+    // otherwise fall back to sensible defaults so the picker opens at the right year.
+    var startVal = (Model.StartDate == default)
+        ? DateTime.Today.ToString("yyyy-MM-dd")
+        : Model.StartDate.ToString("yyyy-MM-dd");
 
-@if (TempData["ModelErrors"] != null)
-{
-    var errs = System.Text.Json.JsonSerializer.Deserialize<List<string>>(TempData["ModelErrors"].ToString());
-    <div class="alert alert-danger">
-        <strong>Validation errors:</strong>
-        <ul>
-            @foreach (var e in errs)
-            {
-                <li>@e</li>
-            }
-        </ul>
-    </div>
+    var endVal = (Model.EndDate == default)
+        ? DateTime.Today.AddYears(1).ToString("yyyy-MM-dd")
+        : Model.EndDate.ToString("yyyy-MM-dd");
+
+    var todayStr = DateTime.Today.ToString("yyyy-MM-dd");
 }
 
-<form asp-action="Create" asp-controller="Contracts" method="post" enctype="multipart/form-data" id="contractForm">
-    @Html.AntiForgeryToken()
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="container mt-4" style="max-width:680px;">
+    <h3>New Contract</h3>
+    <h6 class="text-muted mb-4">Enter contract details and upload the signed agreement.</h6>
 
-    <div class="form-group mb-3">
-        <label asp-for="ClientId" class="fw-bold">Select Client</label>
-        <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientList">
-            <option value="">-- Select Client --</option>
-        </select>
-        <span asp-validation-for="ClientId" class="text-danger"></span>
-    </div>
-
-    <div class="form-group mb-3">
-        <label asp-for="ServiceLevel" class="fw-bold">Service Level Agreement (SLA)</label>
-        <input asp-for="ServiceLevel" class="form-control" placeholder="e.g. Priority Shipping" />
-        <span asp-validation-for="ServiceLevel" class="text-danger"></span>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <label asp-for="StartDate" class="fw-bold">Start Date</label>
-            <input asp-for="StartDate" type="date" class="form-control" />
-            <span asp-validation-for="StartDate" class="text-danger"></span>
+    @if (TempData["ModelErrors"] != null)
+    {
+        var errs = System.Text.Json.JsonSerializer
+            .Deserialize<List<string>>(TempData["ModelErrors"]!.ToString()!);
+        <div class="alert alert-danger">
+            <strong>Validation errors:</strong>
+            <ul class="mb-0">
+                @foreach (var e in errs!)
+                {
+                    <li>@e</li>
+                }
+            </ul>
         </div>
-        <div class="col-md-6 mb-3">
-            <label asp-for="EndDate" class="fw-bold">End Date</label>
-            <input asp-for="EndDate" type="date" class="form-control" />
-            <span asp-validation-for="EndDate" class="text-danger"></span>
+    }
+
+    <form asp-action="Create" asp-controller="Contracts"
+          method="post" enctype="multipart/form-data" id="contractForm">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        @* Client *@
+        <div class="form-group mb-3">
+            <label asp-for="ClientId" class="fw-bold">Select Client</label>
+            <select asp-for="ClientId" class="form-control"
+                    asp-items="ViewBag.ClientList">
+                <option value="">-- Select Client --</option>
+            </select>
+            <span asp-validation-for="ClientId" class="text-danger"></span>
         </div>
-    </div>
 
-    <div class="form-group mt-3">
-        <label class="fw-bold">Upload Signed PDF Agreement</label>
-        <input type="file" name="pdfFile" class="form-control" accept=".pdf,application/pdf" />
-        <span class="text-danger" data-valmsg-for="pdfFile"></span>
-        <small class="text-muted">Only .pdf files are accepted.</small>
-    </div>
+        @* SLA *@
+        <div class="form-group mb-3">
+            <label asp-for="ServiceLevel" class="fw-bold">Service Level Agreement (SLA)</label>
+            <input asp-for="ServiceLevel" class="form-control"
+                   placeholder="e.g. Priority Shipping" />
+            <span asp-validation-for="ServiceLevel" class="text-danger"></span>
+        </div>
 
-    <div class="mt-4">
-        <button type="submit" class="btn btn-primary px-4">Save Contract</button>
-        <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
-    </div>
-</form>
+        @* Dates — use explicit value= so the browser date picker opens at today, not 0001 *@
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="StartDate" class="fw-bold">Start Date</label>
+                <input type="date"
+                       id="StartDate"
+                       name="StartDate"
+                       class="form-control"
+                       value="@startVal"
+                       min="@todayStr" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="EndDate" class="fw-bold">End Date</label>
+                <input type="date"
+                       id="EndDate"
+                       name="EndDate"
+                       class="form-control"
+                       value="@endVal"
+                       min="@todayStr" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        @* PDF upload *@
+        <div class="form-group mt-3">
+            <label class="fw-bold">Upload Signed PDF Agreement</label>
+            <input type="file" name="pdfFile" class="form-control"
+                   accept=".pdf,application/pdf" />
+            <span class="text-danger" data-valmsg-for="pdfFile"></span>
+            <small class="text-muted">Only .pdf files accepted (max 5 MB). Optional.</small>
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-primary px-4">Save Contract</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+        </div>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Keep End Date min in sync with Start Date selection
+        document.getElementById('StartDate').addEventListener('change', function () {
+            var endPicker = document.getElementById('EndDate');
+            endPicker.min = this.value;
+            // If end is now before start, push it forward by 1 year
+            if (endPicker.value && endPicker.value < this.value) {
+                var d = new Date(this.value);
+                d.setFullYear(d.getFullYear() + 1);
+                endPicker.value = d.toISOString().split('T')[0];
+            }
+        });
+    </script>
 }

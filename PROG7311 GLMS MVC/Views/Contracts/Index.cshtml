@@ -1,4 +1,5 @@
-﻿@model IEnumerable<PROG7311GLMS.Models.ContractDto>
+﻿@* Views/Contracts/Index.cshtml *@
+@model IEnumerable<PROG7311GLMS.Models.ContractDto>
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -10,24 +11,35 @@
     {
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             @TempData["Success"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
 
+    @* ── Filter form ── *@
     <div class="card mb-4 bg-light shadow-sm">
         <div class="card-body">
             <form asp-action="Index" method="get" class="row g-3">
                 <div class="col-md-3">
                     <label class="form-label fw-bold">Start Date</label>
-                    <input type="date" name="startDate" class="form-control" value="@Context.Request.Query["startDate"]" />
+                    <input type="date" name="startDate" class="form-control"
+                           value="@Context.Request.Query["startDate"]" />
                 </div>
                 <div class="col-md-3">
                     <label class="form-label fw-bold">End Date</label>
-                    <input type="date" name="endDate" class="form-control" value="@Context.Request.Query["endDate"]" />
+                    <input type="date" name="endDate" class="form-control"
+                           value="@Context.Request.Query["endDate"]" />
                 </div>
                 <div class="col-md-3">
                     <label class="form-label fw-bold">Status</label>
-                    <select name="statusId" class="form-select" asp-items="@(new SelectList(ViewBag.Statuses, "StatusId", "StatusName"))">
+                    <select name="statusId" class="form-select"
+                            asp-items="@(new SelectList(ViewBag.Statuses, "StatusId", "StatusName"))">
                         <option value="">-- All Statuses --</option>
                     </select>
                 </div>
@@ -38,6 +50,7 @@
         </div>
     </div>
 
+    @* ── Contracts table ── *@
     <div class="table-responsive">
         <table class="table table-striped table-hover align-middle">
             <thead class="table-dark">
@@ -56,34 +69,62 @@
                         <td class="fw-bold">@item.ClientName</td>
                         <td>@(item.ServiceLevel ?? "N/A")</td>
                         <td>
-                            <span class="badge bg-secondary">@item.StartDate.ToShortDateString()</span>
+                            <span class="badge bg-secondary">
+                                @item.StartDate.ToShortDateString()
+                            </span>
                             to
-                            <span class="badge bg-secondary">@item.EndDate.ToShortDateString()</span>
+                            <span class="badge bg-secondary">
+                                @item.EndDate.ToShortDateString()
+                            </span>
                         </td>
                         <td>
                             @{
                                 var statusClass = item.StatusName == "Active" ? "success" :
                                                  item.StatusName == "Expired" ? "danger" : "warning";
                             }
-                            <span class="badge rounded-pill bg-@statusClass">@item.StatusName</span>
+                            <span class="badge rounded-pill bg-@statusClass">
+                                @item.StatusName
+                            </span>
                         </td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
-                                <a asp-action="DownloadAgreement" asp-route-id="@item.ContractId" class="btn btn-sm btn-outline-info" title="Download PDF">
-                                    <i class="bi bi-file-earmark-pdf"></i> PDF
-                                </a>
-                                <a asp-action="Duplicate" asp-route-id="@item.ContractId" class="btn btn-sm btn-outline-secondary" title="Clone Contract">
-                                    Clone
-                                </a>
+
+                                @* PDF – only shown when a signed agreement exists *@
+                                @if (!string.IsNullOrEmpty(item.SignedAgreementPath))
+                                {
+                                    <a asp-action="DownloadAgreement"
+                                           asp-route-id="@item.ContractId"
+                                           class="btn btn-sm btn-outline-info"
+                                           title="Download Signed PDF">
+                                        <i class="bi bi-file-earmark-pdf"></i> PDF
+                                    </a>
+                                }
+
+                                @* Clone *@
+                                <a asp-action="Duplicate"
+                                   asp-route-id="@item.ContractId"
+                                   class="btn btn-sm btn-outline-secondary"
+                                   title="Clone Contract">Clone</a>
+
+                                @* Service Requests *@
                                 <a asp-controller="ServiceRequests"
                                    asp-action="Index"
                                    asp-route-contractId="@item.ContractId"
                                    class="btn btn-sm btn-success">+ Request</a>
-                                <form asp-action="Delete" asp-route-id="@item.ContractId" method="post" onsubmit="return confirm('Are you sure you want to delete this contract? This action cannot be undone.');" style="display:inline;">
-                                    @Html.AntiForgeryToken()
-                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                </form>
+
+                                @* Delete *@
+                                <a asp-action="Delete"
+                                   asp-route-id="@item.ContractId"
+                                   class="btn btn-sm btn-danger">Delete</a>
                             </div>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="5" class="text-center py-4 text-muted">
+                            No contracts found.
                         </td>
                     </tr>
                 }
