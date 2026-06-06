@@ -1,25 +1,20 @@
 ﻿// =============================================================
 //  GLMS_MVC / Controllers / ServiceRequestsController.cs
-//
-//  No database access – all operations go through GlmsApiClient.
+//  NO [Authorize] - protected by session guard in Program.cs
 // =============================================================
 
-
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PROG7311GLMS.Models;
 using PROG7311GLMS.Service;
 
 namespace GLMS_MVC.Controllers;
 
-[Authorize]
 public class ServiceRequestsController : Controller
 {
     private readonly GlmsApiClient _api;
 
     public ServiceRequestsController(GlmsApiClient api) => _api = api;
 
-    // GET: /ServiceRequests/Index?contractId=5
     [HttpGet]
     public async Task<IActionResult> Index(int contractId)
     {
@@ -41,7 +36,6 @@ public class ServiceRequestsController : Controller
         return View(vm);
     }
 
-    // POST: /ServiceRequests/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CreateServiceRequestDto request)
@@ -55,7 +49,6 @@ public class ServiceRequestsController : Controller
         return RedirectToAction("Index", new { contractId = request.ContractId });
     }
 
-    // POST: /ServiceRequests/Delete
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(int id, int contractId)

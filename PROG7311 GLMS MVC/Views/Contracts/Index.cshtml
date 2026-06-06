@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PROG7311GLMS.Models.Contract>
+﻿@model IEnumerable<PROG7311GLMS.Models.ContractDto>
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -53,7 +53,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td class="fw-bold">@item.Client.Name</td>
+                        <td class="fw-bold">@item.ClientName</td>
                         <td>@(item.ServiceLevel ?? "N/A")</td>
                         <td>
                             <span class="badge bg-secondary">@item.StartDate.ToShortDateString()</span>
@@ -62,10 +62,10 @@
                         </td>
                         <td>
                             @{
-                                var statusClass = item.Status.StatusName == "Active" ? "success" :
-                                                 item.Status.StatusName == "Expired" ? "danger" : "warning";
+                                var statusClass = item.StatusName == "Active" ? "success" :
+                                                 item.StatusName == "Expired" ? "danger" : "warning";
                             }
-                            <span class="badge rounded-pill bg-@statusClass">@item.Status.StatusName</span>
+                            <span class="badge rounded-pill bg-@statusClass">@item.StatusName</span>
                         </td>
                         <td class="text-center">
                             <div class="btn-group" role="group">

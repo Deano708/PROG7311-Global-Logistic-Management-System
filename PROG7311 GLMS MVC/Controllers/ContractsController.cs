@@ -1,27 +1,21 @@
 ﻿// =============================================================
 //  GLMS_MVC / Controllers / ContractsController.cs
-//
-//  Replaces ALL direct EF Core / Facade calls with GlmsApiClient.
-//  Views remain unchanged (same model shapes via ViewModels.cs).
+//  NO [Authorize] - protected by session guard in Program.cs
 // =============================================================
 
-using PROG7311GLMS.Models;
-using PROG7311GLMS.Service;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using PROG7311GLMS.Models;
+using PROG7311GLMS.Service;
 
 namespace GLMS_MVC.Controllers;
 
-[Authorize]
 public class ContractsController : Controller
 {
     private readonly GlmsApiClient _api;
 
     public ContractsController(GlmsApiClient api) => _api = api;
 
-    // GET: /Contracts
     public async Task<IActionResult> Index(DateTime? startDate, DateTime? endDate, int? statusId)
     {
         var contracts = await _api.GetContractsAsync(startDate, endDate, statusId);
@@ -29,7 +23,6 @@ public class ContractsController : Controller
         return View(contracts);
     }
 
-    // GET: /Contracts/Create
     [HttpGet]
     public async Task<IActionResult> Create()
     {
@@ -37,7 +30,6 @@ public class ContractsController : Controller
         return View(new CreateContractDto());
     }
 
-    // POST: /Contracts/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CreateContractDto dto, IFormFile? pdfFile)
@@ -85,7 +77,6 @@ public class ContractsController : Controller
         }
     }
 
-    // GET: /Contracts/Download/5
     public async Task<IActionResult> DownloadAgreement(int id)
     {
         var bytes = await _api.DownloadAgreementAsync(id);
@@ -93,7 +84,6 @@ public class ContractsController : Controller
         return File(bytes, "application/pdf", $"Contract_{id}.pdf");
     }
 
-    // POST: /Contracts/Duplicate/5  (linked from view button)
     public async Task<IActionResult> Duplicate(int id)
     {
         var clone = await _api.DuplicateContractAsync(id);
@@ -102,22 +92,17 @@ public class ContractsController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    // PATCH: /Contracts/UpdateStatus  (called via form post from UI)
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateStatus(int id, string statusName)
     {
         var updated = await _api.PatchContractStatusAsync(id, statusName);
-        if (updated == null)
-        {
-            TempData["Error"] = "Could not update status.";
-            return RedirectToAction(nameof(Index));
-        }
-        TempData["Success"] = $"Contract status updated to {statusName}.";
+        TempData[updated != null ? "Success" : "Error"] = updated != null
+            ? $"Contract status updated to {statusName}."
+            : "Could not update status.";
         return RedirectToAction(nameof(Index));
     }
 
-    // GET: /Contracts/Delete/5
     public async Task<IActionResult> Delete(int id)
     {
         var contract = await _api.GetContractAsync(id);
@@ -125,7 +110,6 @@ public class ContractsController : Controller
         return View(contract);
     }
 
-    // POST: /Contracts/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
@@ -134,11 +118,8 @@ public class ContractsController : Controller
         TempData[success ? "Success" : "Error"] = success
             ? "Contract deleted successfully."
             : "Unable to delete contract – it may have linked service requests.";
-
         return RedirectToAction(nameof(Index));
     }
-
-    // ── Helpers ───────────────────────────────────────────────
 
     private async Task PopulateCreateViewBags(int selectedClientId = 0)
     {

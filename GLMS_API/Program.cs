@@ -96,8 +96,9 @@ builder.Services.AddSwaggerGen(c =>
 // ── 7. CORS – allow the MVC front-end ─────────────────────────
 builder.Services.AddCors(options =>
     options.AddPolicy("MvcClient", policy =>
-        policy.WithOrigins(
-                builder.Configuration["AllowedOrigins:MvcApp"] ?? "https://localhost:7001")
+        policy.WithOrigins(builder.Configuration["AllowedOrigins:MvcApp"] ?? "https://localhost:7160",
+                "http://localhost:5137",   
+                "https://localhost:7160" )
               .AllowAnyHeader()
               .AllowAnyMethod()));
 

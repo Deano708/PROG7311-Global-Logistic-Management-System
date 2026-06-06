@@ -1,4 +1,4 @@
-﻿@model PROG7311GLMS.Models.Contract
+﻿@model PROG7311GLMS.Models.ContractServiceRequestsViewModel
 
 <div class="container mt-4">
     <nav aria-label="breadcrumb">
@@ -15,20 +15,20 @@
                     <h5 class="mb-0">Contract Details</h5>
                 </div>
                 <div class="card-body">
-                    <p><strong>Client:</strong> @Model.Client.Name</p>
+                    <p><strong>Client:</strong> @Model.Contract.ClientName</p>
                     <p>
                         <strong>Status:</strong>
-                        <span class="badge bg-@(Model.Status.StatusName == "Active" ? "success" : "danger")">
-                            @Model.Status.StatusName
+                        <span class="badge bg-@(Model.Contract.StatusName == "Active" ? "success" : "danger")">
+                            @Model.Contract.StatusName
                         </span>
                     </p>
                     <hr />
 
-                    @if (Model.Status.StatusName == "Active")
+                    @if (Model.Contract.StatusName == "Active")
                     {
                         <h6>Raise New Request</h6>
                         <form asp-action="Create" method="post">
-                            <input type="hidden" name="ContractId" value="@Model.ContractId" />
+                            <input type="hidden" name="ContractId" value="@Model.Contract.ContractId" />
             
                             <div class="mb-3">
                                 <label class="form-label small fw-bold">Description</label>
@@ -51,7 +51,7 @@
                         <div class="alert alert-warning border-0 shadow-sm">
                             <i class="bi bi-exclamation-triangle"></i>
                             <strong>Form Locked:</strong> Service requests can only be raised for <b>Active</b> contracts.
-                            This contract is currently <strong>@Model.Status.StatusName</strong>.
+                            This contract is currently <strong>@Model.Contract.StatusName</strong>.
                         </div>
                         <button class="btn btn-secondary w-100" disabled>Submit Locked</button>
                     }
@@ -91,11 +91,11 @@
                                     <td>@sr.Description</td>
                                     <td>$@sr.CostUsd.ToString("N2")</td>
                                     <td>R @sr.CostZar.ToString("N2")</td>
-                                    <td><span class="badge bg-secondary">@sr.Status?.StatusName</span></td>
+                                    <td><span class="badge bg-secondary">@sr.StatusName?</span></td>
                                     <td>
                                         <form asp-action="Delete" method="post" onsubmit="return confirm('Delete this request?');">
                                             <input type="hidden" name="id" value="@sr.ServiceRequestId" />
-                                            <input type="hidden" name="contractId" value="@Model.ContractId" />
+                                            <input type="hidden" name="contractId" value="@Model.Contract.ContractId" />
                                             <button type="submit" class="btn btn-sm btn-outline-danger border-0">
                                                 <i class="bi bi-trash"></i> Delete
                                             </button>
