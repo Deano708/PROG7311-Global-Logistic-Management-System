@@ -1,0 +1,103 @@
+﻿
+
+name: GLMS CI – Build & Test
+
+
+on:
+  push:
+    branches:
+      - main          # Every push to main branch
+      - develop       # Every push to develop branch
+  pull_request:
+    branches:
+      - main          # Every Pull Request targeting main
+      - develop
+
+
+jobs:
+
+
+  build-and-test:
+    name: Build & Run Tests
+    
+    
+    runs-on: windows-latest
+
+    steps:
+
+     
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+     
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      
+      - name: Restore NuGet packages
+        run: dotnet restore PROG7311GLMS.slnx
+
+     
+      - name: Build solution
+        run: dotnet build PROG7311GLMS.slnx --no-restore --configuration Release
+
+      
+      - name: Create fake Firebase service account for tests
+        shell: pwsh
+        run: |
+          $fakeJson = @'
+          {
+            "type": "service_account",
+            "project_id": "prog7311glms",
+            "private_key_id": "test-key-id",
+            "private_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEA0Z3VS5JJcds3xHn/ygWep4PAtcsNBqCOBMc9qKKSrTFCHAEn\ntestkey\n-----END RSA PRIVATE KEY-----\n",
+            "client_email": "firebase-adminsdk-test@prog7311glms.iam.gserviceaccount.com",
+            "client_id": "000000000000000000000",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token"
+          }
+          '@
+          # Place it where the API expects it
+          $fakeJson | Out-File -FilePath "GLMS_API/firebase-service-account.json" -Encoding utf8
+          Write-Host "Fake Firebase service account created."
+
+      # ── Step 6: Run the tests ────────────────────────────────
+      # dotnet test finds all test projects and runs them.
+      # --no-build skips recompiling (already done in Step 4).
+      # --logger produces a TRX report file we can view on GitHub.
+      # --verbosity normal shows each test name as it runs.
+      - name: Run NUnit tests
+        run: >
+          dotnet test PROG7311GLMS.Tests/PROG7311GLMS.Tests.csproj
+          --no-build
+          --configuration Release
+          --logger "trx;LogFileName=test-results.trx"
+          --logger "console;verbosity=normal"
+          --results-directory TestResults
+
+      # ── Step 7: Publish test results ─────────────────────────
+      # Uploads the TRX report so you can see detailed pass/fail
+      # on the GitHub Actions "Summary" page after the run.
+      # This step runs even if tests fail (if: always()) so you
+      # can always see what went wrong.
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: TestResults/test-results.trx
+          retention-days: 30
+
+      # ── Step 8: Publish test summary to PR/commit ────────────
+      # Shows a nice test results table directly on the GitHub
+      # Actions summary page — no need to download the TRX file.
+      - name: Test summary
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: NUnit Test Results
+          path: TestResults/test-results.trx
+          reporter: dotnet-trx
+          fail-on-error: true
