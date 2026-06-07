@@ -27,13 +27,15 @@ builder.Services.AddHttpClient();
 // ── 3. Firebase Admin SDK (server-side token verification) ────
 //  Place your Firebase service-account JSON at the path below,
 //  OR set env var GOOGLE_APPLICATION_CREDENTIALS to that path.
-FirebaseApp.Create(new AppOptions
+if (FirebaseApp.DefaultInstance == null)
 {
-    Credential = GoogleCredential.FromFile(
+    FirebaseApp.Create(new AppOptions
+    {
+        Credential = GoogleCredential.FromFile(
         builder.Configuration["Firebase:ServiceAccountPath"]
             ?? "firebase-service-account.json")
-});
-
+    });
+}
 // ── 4. Authentication – Firebase JWT Bearer ───────────────────
 var firebaseProjectId = builder.Configuration["Firebase:ProjectId"];
 

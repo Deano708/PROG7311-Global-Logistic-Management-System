@@ -1,6 +1,19 @@
-﻿using GLMS_API.Services;
+﻿// =============================================================
+//  PROG7311GLMS.Tests / FileUploadTests.cs
+//
+//  UNIT TESTS — these test file upload validation in isolation.
+//  We do NOT boot the full API here (that caused the Firebase
+//  "already exists" error when multiple factories were created).
+//  Instead we create a minimal LogisticsService directly.
+// =============================================================
+
+using GLMS_API.Models;
+using GLMS_API.Services;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 using NUnit.Framework;
 
@@ -9,27 +22,33 @@ namespace PROG7311GLMS.Tests;
 [TestFixture]
 public class FileUploadTests
 {
-    // We need a real LogisticsService instance.
-    // File upload logic doesn't use DB, HttpClient or Config,
-    // so we can safely use null for those via NullLoggerFactory.
     private ILogisticsService _service = null!;
 
     [SetUp]
     public void Setup()
     {
-        // Use the ApiTestFactory to get a real service with in-memory DB
-        // rather than passing nulls (which caused NullReferenceExceptions
-        // in your original tests when other methods were called).
-        using var factory = new ApiTestFactory();
-        using var scope = factory.Services.CreateScope();
-        _service = scope.ServiceProvider.GetRequiredService<ILogisticsService>();
+        // Build a minimal in-memory DbContext directly —
+        // no WebApplicationFactory needed, so Firebase is never touched.
+        var dbOptions = new DbContextOptionsBuilder<GlmsContext>()
+            .UseInMemoryDatabase("FileUploadTestDb_" + Guid.NewGuid())
+            .Options;
+        var db = new GlmsContext(dbOptions);
+
+        // Empty configuration — upload logic doesn't use any config keys
+        var config = new ConfigurationBuilder().Build();
+
+        // NullLoggerFactory — we don't need real log output in unit tests
+        var loggerFactory = NullLoggerFactory.Instance;
+        var logger = loggerFactory.CreateLogger<LogisticsService>();
+
+        // Real HttpClientFactory is not needed for upload tests
+        var httpFactory = new Mock<IHttpClientFactory>().Object;
+
+        _service = new LogisticsService(db, httpFactory, config, logger);
     }
 
-    // ── Tests that should REJECT the file (return null) ───────
+    // ── Tests that REJECT the file ────────────────────────────
 
-    /// <summary>
-    /// A null file input should return null immediately.
-    /// </summary>
     [Test]
     public async Task Upload_NullInput_ReturnsNull()
     {
@@ -37,81 +56,49 @@ public class FileUploadTests
         Assert.That(result, Is.Null, "Null file should return null");
     }
 
-    /// <summary>
-    /// A zero-byte file should be rejected even if it has a .pdf extension.
-    /// </summary>
     [Test]
     public async Task Upload_ZeroByteFile_ReturnsNull()
     {
         var fileMock = CreateMockFile("empty.pdf", "application/pdf", length: 0);
-
         var result = await _service.UploadAgreementAsync(fileMock.Object);
-
         Assert.That(result, Is.Null, "Zero-byte file should be rejected");
     }
 
-    /// <summary>
-    /// A file with a .exe extension should be rejected regardless of content type.
-    /// </summary>
     [Test]
     public async Task Upload_ExecutableFile_ReturnsNull()
     {
-        var fileMock = CreateMockFile(
-            "malware.exe", "application/x-msdownload", length: 1024);
-
+        var fileMock = CreateMockFile("malware.exe", "application/x-msdownload", length: 1024);
         var result = await _service.UploadAgreementAsync(fileMock.Object);
-
         Assert.That(result, Is.Null, "Executable file should be rejected");
     }
 
-    /// <summary>
-    /// A file with a .pdf extension but wrong MIME type should be rejected.
-    /// Attackers sometimes rename files — we check both extension AND content type.
-    /// </summary>
     [Test]
     public async Task Upload_PdfExtensionButWrongMimeType_ReturnsNull()
     {
-        var fileMock = CreateMockFile(
-            "fake.pdf", "application/zip", length: 1024);  // ZIP disguised as PDF
-
+        // ZIP disguised with a .pdf extension
+        var fileMock = CreateMockFile("fake.pdf", "application/zip", length: 1024);
         var result = await _service.UploadAgreementAsync(fileMock.Object);
-
-        Assert.That(result, Is.Null,
-            "File with wrong MIME type should be rejected even if extension is .pdf");
+        Assert.That(result, Is.Null, "Wrong MIME type should be rejected even with .pdf extension");
     }
 
-    /// <summary>
-    /// A .jpg image should be rejected — only PDFs are allowed.
-    /// </summary>
     [Test]
     public async Task Upload_ImageFile_ReturnsNull()
     {
         var fileMock = CreateMockFile("photo.jpg", "image/jpeg", length: 2048);
-
         var result = await _service.UploadAgreementAsync(fileMock.Object);
-
         Assert.That(result, Is.Null, "Image files should be rejected");
     }
 
-    /// <summary>
-    /// A file larger than 5MB should be rejected.
-    /// 5MB = 5 * 1024 * 1024 = 5,242,880 bytes. We test at 5,242,881.
-    /// </summary>
     [Test]
     public async Task Upload_FileTooLarge_ReturnsNull()
     {
-        var fileMock = CreateMockFile(
-            "huge.pdf", "application/pdf",
-            length: (5 * 1024 * 1024) + 1);  // 1 byte over the 5MB limit
-
+        // 1 byte over the 5 MB limit
+        var fileMock = CreateMockFile("huge.pdf", "application/pdf",
+            length: (5 * 1024 * 1024) + 1);
         var result = await _service.UploadAgreementAsync(fileMock.Object);
-
-        Assert.That(result, Is.Null, "Files larger than 5MB should be rejected");
+        Assert.That(result, Is.Null, "Files larger than 5 MB should be rejected");
     }
 
-    /// <summary>
-    /// A file with the wrong content type AND wrong extension should be rejected.
-    /// </summary>
     [Test]
     public async Task Upload_WordDocument_ReturnsNull()
     {
@@ -119,49 +106,36 @@ public class FileUploadTests
             "contract.docx",
             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             length: 4096);
-
         var result = await _service.UploadAgreementAsync(fileMock.Object);
-
         Assert.That(result, Is.Null, "Word documents should be rejected");
     }
 
     // ── Boundary test ─────────────────────────────────────────
 
-    /// <summary>
-    /// A file exactly AT the 5MB limit should NOT be rejected by size.
-    /// (It will still fail because we can't copy to a real filesystem in unit tests,
-    ///  but this verifies the size check boundary.)
-    /// </summary>
     [Test]
-    public async Task Upload_FileExactlyAtSizeLimit_NotRejectedBySizeCheck()
+    public async Task Upload_FileExactlyAtSizeLimit_PassesSizeValidation()
     {
-        // Exactly 5MB — should pass the size gate
-        var fileMock = CreateMockFile(
-            "exact.pdf", "application/pdf",
+        // Exactly 5 MB — should pass the size gate (not be rejected by size)
+        var content = new byte[5 * 1024 * 1024];
+        var fileMock = CreateMockFile("exact.pdf", "application/pdf",
             length: 5 * 1024 * 1024);
 
-        // Setup a real stream so CopyToAsync doesn't throw
-        var content = new byte[5 * 1024 * 1024];
+        // Provide a real readable stream so CopyToAsync works
         fileMock.Setup(_ => _.OpenReadStream())
                 .Returns(new MemoryStream(content));
         fileMock.Setup(_ => _.CopyToAsync(It.IsAny<Stream>(), It.IsAny<CancellationToken>()))
                 .Returns(Task.CompletedTask);
 
-        // We don't assert null here because the file passes validation —
-        // whether it succeeds depends on filesystem access in the test environment.
-        // The key assertion is that it does NOT fail due to the size check.
-        // This test documents the boundary behaviour.
+        // This test verifies the file is NOT rejected by the size check.
+        // It may still return null if the filesystem isn't writable in CI,
+        // but it should NOT throw an exception.
         Assert.DoesNotThrowAsync(
             async () => await _service.UploadAgreementAsync(fileMock.Object),
-            "A file exactly at the size limit should not throw an exception");
+            "A file exactly at the size limit should not throw");
     }
 
     // ── Helper ────────────────────────────────────────────────
 
-    /// <summary>
-    /// Creates a Moq IFormFile mock with the given filename, content type, and size.
-    /// This saves repeating the same Setup() calls in every test.
-    /// </summary>
     private static Mock<IFormFile> CreateMockFile(
         string fileName, string contentType, long length)
     {
