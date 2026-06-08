@@ -129,7 +129,14 @@ VALUES
 
 <br>
 <h4 align="center">References:</h4>
-Draw.io,2026.CD1.drawio. Available at: <https://app.diagrams.net/> [Accessed 22 April 2026].
+<br>
+Deschryver, T. (2026) Tutorial: Create a controller-based web API with ASP.NET Core. Available at: Tutorial: Create a controller-based web API with ASP.NET Core | Microsoft Learn
+<br>
+Umrani, A. (2024) Creating an MVC app with Firebase. Available at: Creating an MVC app with Firebase | by Aadi Umrani | Medium
+<br>
+Microsoft Learn. (2022) Create Data Transfer Objects (DTOs). Available at: Create Data Transfer Objects (DTOs) | Microsoft Learn
+<br>
+Microsoft Learn. (2026) Integration tests in ASP.NET Core. Available at: Integration tests in ASP.NET Core | Microsoft Learn
 <br>
 Draw.io,2026.CD New.drawio. Available at: <https://app.diagrams.net/> [Accessed 20 April 2026].
 <br>
