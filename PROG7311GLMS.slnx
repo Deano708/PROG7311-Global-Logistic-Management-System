@@ -1,4 +1,10 @@
 <Solution>
+  <Folder Name="/docker/">
+    <File Path="init-db.sql" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".dockerignore" />
+  </Folder>
   <Project Path="GLMS_API/GLMS_API.csproj" Id="9367013a-25c5-4883-9f9b-51f21cf71334" />
   <Project Path="PROG7311 GLMS MVC/PROG7311GLMS.csproj" />
   <Project Path="PROG7311GLMS.Tests/PROG7311GLMS.Tests.csproj" Id="2d062588-8f6b-49a0-97f9-c1216ae53f25" />

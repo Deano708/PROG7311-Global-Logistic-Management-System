@@ -1,0 +1,11 @@
+# Ignore build artifacts
+**/bin/
+**/obj/
+# Ignore IDE settings
+.vs/
+.vscode/
+# Ignore the Dockerfiles themselves so the compiler doesn't try to read them
+**/*.Dockerfile
+**/Dockerfile
+# Ignore git
+.git/

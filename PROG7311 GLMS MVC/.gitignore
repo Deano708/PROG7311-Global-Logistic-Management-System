@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Firebase private key - never commit this
+GLMS_API/firebase-service-account.json
+
+# Docker file with API key
+.env
