@@ -20,6 +20,10 @@
 <br>
 <h4 align="center">Dockerization </h4>
 <img width="1520" height="210" alt="Screenshot 2026-06-08 162510" src="https://github.com/user-attachments/assets/37977868-ee90-4f5e-8f32-7c4878455cd0" />
+<br>
+<img width="1835" height="973" alt="swagger" src="https://github.com/user-attachments/assets/419b1b26-e9e1-4b1a-b577-907739e52941" />
+<br>
+<img width="1187" height="848" alt="localhost login" src="https://github.com/user-attachments/assets/82d4e005-341d-4163-807f-1e95cb67f719" />
 
 <br>
 <br>
