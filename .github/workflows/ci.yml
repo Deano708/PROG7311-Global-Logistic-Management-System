@@ -6,10 +6,12 @@ on:
     branches:
       - main          # Every push to main branch
       - develop       # Every push to develop branch
+      - master
   pull_request:
     branches:
       - main          # Every Pull Request targeting main
       - develop
+      -master
 
 
 jobs:
