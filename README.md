@@ -1,42 +1,28 @@
-<h1 align="center">GLMS</h1>
+<h1 align="center">GLMS Summative</h1>
 <br>
 
-<h4 align="center">YouTube Link: https://youtu.be/Q4XpPjyLT7Q </h4>
+<h4 align="center">YouTube Link: https://youtu.be/EK00ZQA5l40 </h4>
 
 
-<h4 align="center">Initial Class Diagram</h4>
-<img width="811" height="587" alt="CD1 drawio" src="https://github.com/user-attachments/assets/e41ee7f6-2539-4fe2-a7a7-d2eb1be00732" />
-(Draw.io, 2026)
-<br>
+
 <br>
 
-<h4 align="center">New Updated Class Diagram</h4>
+<h4 align="center">DB Class Diagram</h4>
 <img width="701" height="965" alt="CD New drawio" src="https://github.com/user-attachments/assets/9d9629d6-dbb4-4b30-9019-c7d20a5e7860" />
 (Draw.io, 2026)
 <br>
 <br>
 
 <h4 align="center">Unit Tests</h4>
-<img width="982" height="488" alt="UnitTests" src="https://github.com/user-attachments/assets/f5b4aba6-8120-4846-9e43-b84ad1e12e2b" />
+<img width="1116" height="982" alt="Screenshot 2026-06-08 165527" src="https://github.com/user-attachments/assets/dc2c84aa-a817-4d47-a917-269bcc5b25d9" />
 
 <br>
-ConvertUsdToZar Unit Test
-<img width="1312" height="703" alt="ConvertUsdToZar" src="https://github.com/user-attachments/assets/3bcbe3a2-ec80-4158-8132-a210027e57e5" />
 <br>
-<br>
-UploadNullInput
-<img width="851" height="223" alt="UploadNullInput" src="https://github.com/user-attachments/assets/ba2dd6c4-da4d-44c8-b2f3-17101ea35f44" />
-<br>
-<br>
-UploadRestrictedFile
-<img width="905" height="390" alt="UploadRestrictedFile" src="https://github.com/user-attachments/assets/2ca839e5-b02d-49c4-aabc-bc9002f3a325" />
-<br>
-<br>
-UploadZeroByteFile
-<img width="776" height="352" alt="UploadZeroByteFile" src="https://github.com/user-attachments/assets/bab176ec-1bac-4937-a2d7-7bbfa2974c16" />
-<br>
-<br>
+<h4 align="center">Dockerization </h4>
+<img width="1520" height="210" alt="Screenshot 2026-06-08 162510" src="https://github.com/user-attachments/assets/37977868-ee90-4f5e-8f32-7c4878455cd0" />
 
+<br>
+<br>
 <h4 align="center">SSMS SQL Script:</h4>
 
 Create Database GLMS;
@@ -149,33 +135,12 @@ Draw.io,2026.CD New.drawio. Available at: <https://app.diagrams.net/> [Accessed 
 <br>
 <h4 align="center">Declaration of AI Usage in my assessment:</h4>
 <h4 align="center">Section, glmscontext, ContractController, FacadeServices, ServiceRequestController</h4>
-<h4 align="center">AI Tool: Gemini</h4>
+<h4 align="center">AI Tool: Claude Sonnet 4,6 , Gemini</h4>
 <h4 align="center">Purpose: Assist in scaffolding, designing and error handling parts of the GLMS</h4>
-<h4 align="center">Date: 19/04/26 to 22/04/26</h4>
-<h4 align="center">https://gemini.google.com/share/ca73c9577183</h4>
-<img width="618" height="742" alt="References" src="https://github.com/user-attachments/assets/3eb20473-1dbf-4f90-a04d-876cc82a8b69" />
+<h4 align="center">Date: 03/06/26 to 08/06/26</h4>
+<h4 align="center">https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5</h4>
+ <h4 align="center">https://gemini.google.com/share/b712e62df337</h4>
+<img width="487" height="637" alt="Ref 1" src="https://github.com/user-attachments/assets/e2fc0f34-8e42-47b3-bf3a-fb64a618ef4d" />
+<img width="482" height="422" alt="Ref 2" src="https://github.com/user-attachments/assets/14235e49-e03c-4b6a-87c6-fb7eefce9853" />
 
-<br>
-<br>
-(Figure 1)
-<img width="911" height="630" alt="ContractController" src="https://github.com/user-attachments/assets/6dde3ca5-f961-46ba-bde8-7851dce309a6" />
-<br>
-<br>
-(Figure 2)
-<img width="892" height="637" alt="ServiceRequestController" src="https://github.com/user-attachments/assets/49080cb7-3e3b-41f0-8211-15a1823f3076" />
-
-<br>
-<br>
-(Figure 3)
-<img width="907" height="620" alt="Facade Service" src="https://github.com/user-attachments/assets/e01eb3d1-7889-4cb7-8c83-d9cca8cb3f7b" />
-
-<br>
-<br>
-(Figure 4)
-<img width="910" height="615" alt="CurrencyTest" src="https://github.com/user-attachments/assets/651799cf-e141-455d-b996-2592357c0c9c" />
-
-<br>
-<br>
-(Figure 5)
-<img width="893" height="642" alt="FileUploadTest" src="https://github.com/user-attachments/assets/f382b03e-a999-4715-b1cb-c9183e9baf07" />
 
