@@ -4,6 +4,24 @@
 //  from the original LogisticsFacade in the old MVC project.
 // =============================================================
 
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: LogisticsService.
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance of API LogisticsService allowing for business logic operations and service requests handling.
+• Date(s) 03/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
+
+/*
+   Title: Tutorial: Create a controller-based web API with ASP.NET Core
+   Author:  Tim Deschryver & Rick Anderson
+   Date: 01/04/2026
+   Date accessed: 03/06/2026
+   Availability: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-10.0&tabs=visual-studio
+*/
+
+
 using Microsoft.EntityFrameworkCore;
 using GLMS_API.Models;
 using GLMS_API.DTOs;

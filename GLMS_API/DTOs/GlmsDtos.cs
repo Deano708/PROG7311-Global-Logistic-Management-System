@@ -4,6 +4,15 @@
 //  Keeps EF navigation properties out of the HTTP layer.
 // =============================================================
 
+
+/*
+   Title: Create Data Transfer Objects (DTOs)
+   Author:  Microsoft Learn
+   Date: 05/01/2022
+   Date accessed: 03/06/2026
+   Availability: https://learn.microsoft.com/en-us/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5
+*/
+
 namespace GLMS_API.DTOs;
 
 // ── Contracts ─────────────────────────────────────────────────

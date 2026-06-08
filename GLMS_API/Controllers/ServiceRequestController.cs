@@ -8,6 +8,15 @@
 //    GET    /api/servicerequests/{id}/convert  – USD → ZAR preview
 // =============================================================
 
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: ServiceRequestsController.
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance of API ServiceRequestsController allowing for http calls of POST, GET, PATCH, and DELETE.
+• Date(s) 03/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using GLMS_API.DTOs;

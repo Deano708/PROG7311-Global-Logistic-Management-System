@@ -5,6 +5,23 @@
 //  it in session for subsequent API calls.
 // =============================================================
 
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: AuthenticationController.
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance of API AuthController allowing for calls to and from Firebase for token verification.
+• Date(s) 03/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
+
+/*
+   Title: Tutorial: Create a controller-based web API with ASP.NET Core
+   Author:  Tim Deschryver & Rick Anderson
+   Date: 01/04/2026
+   Date accessed: 03/06/2026
+   Availability: https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-10.0&tabs=visual-studio
+*/
+
 using FirebaseAdmin.Auth;
 using Microsoft.AspNetCore.Mvc;
 using GLMS_API.DTOs;

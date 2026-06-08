@@ -6,6 +6,15 @@
 //  Firebase Bearer token from the current user's session.
 // =============================================================
 
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: GLMS API Client.
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance of MVC to GLMS API Client allowing for communication with front end MVC and API for db access.
+• Date(s) 03/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
+
 
 using PROG7311GLMS.Models;
 using Microsoft.AspNetCore.Http;

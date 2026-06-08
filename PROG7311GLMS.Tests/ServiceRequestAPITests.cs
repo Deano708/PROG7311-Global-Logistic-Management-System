@@ -8,6 +8,16 @@ using NUnit.Framework;
 
 namespace PROG7311GLMS.Tests;
 
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: ServiceRequestApiTests.
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance and troubleshooting of ServiceRequestApiTests allowing for testing of service request API endpoints.
+• Date(s) 05/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
+
+
 [TestFixture]
 public class ServiceRequestApiTests
 {

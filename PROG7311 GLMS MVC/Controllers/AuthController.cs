@@ -1,6 +1,4 @@
-﻿// =============================================================
-//  GLMS_MVC / Controllers / AuthController.cs
-// =============================================================
+﻿
 
 using Microsoft.AspNetCore.Mvc;
 using PROG7311GLMS.Models;

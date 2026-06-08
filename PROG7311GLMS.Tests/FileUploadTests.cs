@@ -7,6 +7,15 @@
 //  Instead we create a minimal LogisticsService directly.
 // =============================================================
 
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: FileUploadTests.
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance and troubleshooting of FileUploadTests allowing for testing of file upload validation in isolation.
+• Date(s) 05/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
+
 using GLMS_API.Models;
 using GLMS_API.Services;
 using Microsoft.AspNetCore.Http;

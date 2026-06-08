@@ -1,8 +1,14 @@
 // =============================================================
 //  GLMS Web API – Program.cs
-//  Registers: EF Core, Swagger/OpenAPI, Firebase JWT Auth,
-//             HttpClient (for currency), CORS, and services.
-// =============================================================
+
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: Program.cs.
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance and, troubleshooting of API program.cs along with all imported dependencies.
+• Date(s) 03/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
 
 using FirebaseAdmin;
 using GLMS_API.Models;

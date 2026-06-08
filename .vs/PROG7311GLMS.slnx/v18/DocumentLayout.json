@@ -3,76 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311glms.tests\\ci.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}",
-      "RelativeMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|solutionrelative:prog7311glms.tests\\ci.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311glms.tests\\servicerequestapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|solutionrelative:prog7311glms.tests\\servicerequestapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311glms.tests\\prog7311glms.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|solutionrelative:prog7311glms.tests\\prog7311glms.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311glms.tests\\fileuploadtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|solutionrelative:prog7311glms.tests\\fileuploadtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311glms.tests\\apitestfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|solutionrelative:prog7311glms.tests\\apitestfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\controllers\\servicerequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\controllers\\servicerequestcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311glms.tests\\contractsapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|solutionrelative:prog7311glms.tests\\contractsapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\controllers\\lookupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\controllers\\lookupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\glms_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\glms_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\controllers\\contractscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\controllers\\contractscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\prog7311glms.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\prog7311glms.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\dtos\\glmsdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\dtos\\glmsdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\services\\logisticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\services\\logisticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\views\\servicerequests\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\views\\servicerequests\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\service\\glmsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\service\\glmsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\views\\contracts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\views\\contracts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\views\\contracts\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\views\\contracts\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\views\\contracts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\views\\contracts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\views\\servicerequests\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\views\\servicerequests\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\models\\contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\models\\contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\services\\logisticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\services\\logisticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\service\\facadeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\service\\facadeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\controllers\\servicerequestscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -87,44 +59,16 @@
       "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\service\\glmsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\service\\glmsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311glms.tests\\contractsapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|solutionrelative:prog7311glms.tests\\contractsapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\service\\facadeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\service\\facadeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311glms.tests\\fileuploadtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|solutionrelative:prog7311glms.tests\\fileuploadtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\models\\createservicerequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\models\\createservicerequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\models\\servicerequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\models\\servicerequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\models\\servicerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\models\\servicerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\models\\glmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\models\\glmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\models\\firebaseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\models\\firebaseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\models\\createcontractviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\models\\createcontractviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\models\\contractviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\models\\contractviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\models\\contractservicerequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\models\\contractservicerequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311glms.tests\\servicerequestapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D062588-8F6B-49A0-97F9-C1216AE53F25}|PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj|solutionrelative:prog7311glms.tests\\servicerequestapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -134,384 +78,228 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ci.yml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ci.yml",
-              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\ci.yml",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ci.yml",
-              "RelativeToolTip": "PROG7311GLMS.Tests\\ci.yml",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAAAC0AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2026-06-07T19:34:39.173Z",
+              "DocumentIndex": 1,
+              "Title": "ServiceRequestController.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Controllers\\ServiceRequestController.cs",
+              "RelativeDocumentMoniker": "GLMS_API\\Controllers\\ServiceRequestController.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Controllers\\ServiceRequestController.cs",
+              "RelativeToolTip": "GLMS_API\\Controllers\\ServiceRequestController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAiwBAAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T07:23:11.889Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Program.cs",
-              "RelativeDocumentMoniker": "GLMS_API\\Program.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Program.cs",
-              "RelativeToolTip": "GLMS_API\\Program.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAswCUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T16:35:49.243Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ContractsAPITests.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ContractsAPITests.cs",
-              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\ContractsAPITests.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ContractsAPITests.cs",
-              "RelativeToolTip": "PROG7311GLMS.Tests\\ContractsAPITests.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAArwKUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T14:19:25.175Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "APITestFactory.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\APITestFactory.cs",
-              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\APITestFactory.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\APITestFactory.cs",
-              "RelativeToolTip": "PROG7311GLMS.Tests\\APITestFactory.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAswHsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T14:18:19.581Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PROG7311GLMS.Tests.csproj",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj",
-              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj",
-              "RelativeToolTip": "PROG7311GLMS.Tests\\PROG7311GLMS.Tests.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-07T14:16:07.114Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ServiceRequestAPITests.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ServiceRequestAPITests.cs",
-              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\ServiceRequestAPITests.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ServiceRequestAPITests.cs",
-              "RelativeToolTip": "PROG7311GLMS.Tests\\ServiceRequestAPITests.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAvwH4AAAAAAAAAAAAAAA==",
+              "Title": "LookupsController.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Controllers\\LookupsController.cs",
+              "RelativeDocumentMoniker": "GLMS_API\\Controllers\\LookupsController.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Controllers\\LookupsController.cs",
+              "RelativeToolTip": "GLMS_API\\Controllers\\LookupsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T14:20:17.311Z",
+              "WhenOpened": "2026-06-08T07:23:05.347Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FileUploadTests.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\FileUploadTests.cs",
-              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\FileUploadTests.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\FileUploadTests.cs",
-              "RelativeToolTip": "PROG7311GLMS.Tests\\FileUploadTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJMAAAABAAAAAAAAAA==",
+              "Title": "ContractsController.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Controllers\\ContractsController.cs",
+              "RelativeDocumentMoniker": "GLMS_API\\Controllers\\ContractsController.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Controllers\\ContractsController.cs",
+              "RelativeToolTip": "GLMS_API\\Controllers\\ContractsController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T14:21:04.923Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GLMS_API.csproj",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\GLMS_API.csproj",
-              "RelativeDocumentMoniker": "GLMS_API\\GLMS_API.csproj",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\GLMS_API.csproj",
-              "RelativeToolTip": "GLMS_API\\GLMS_API.csproj",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAABYAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-07T16:35:45.025Z",
+              "WhenOpened": "2026-06-08T07:22:56.442Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "GLMS_API\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Controllers\\AuthController.cs",
               "RelativeToolTip": "GLMS_API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T16:35:31.055Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PROG7311GLMS.csproj",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\PROG7311GLMS.csproj",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\PROG7311GLMS.csproj",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\PROG7311GLMS.csproj",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\PROG7311GLMS.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-07T16:35:13.871Z",
+              "WhenOpened": "2026-06-08T07:22:50.018Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\Contracts\\Create.cshtml",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Views\\Contracts\\Create.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\Contracts\\Create.cshtml",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Views\\Contracts\\Create.cshtml",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAcwHQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-06T12:49:27.96Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Program.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Program.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Program.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Program.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAvwEEAAAAzAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "GlmsDtos.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\DTOs\\GlmsDtos.cs",
+              "RelativeDocumentMoniker": "GLMS_API\\DTOs\\GlmsDtos.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\DTOs\\GlmsDtos.cs",
+              "RelativeToolTip": "GLMS_API\\DTOs\\GlmsDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T08:17:52.666Z"
+              "WhenOpened": "2026-06-08T07:22:37.984Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "FacadeService.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Service\\FacadeService.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Service\\FacadeService.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Service\\FacadeService.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Service\\FacadeService.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAswK0AAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "APITestFactory.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\APITestFactory.cs",
+              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\APITestFactory.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\APITestFactory.cs",
+              "RelativeToolTip": "PROG7311GLMS.Tests\\APITestFactory.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:46:00.847Z"
+              "WhenOpened": "2026-06-08T07:14:07.894Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAkwGsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T08:18:31.599Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\Contracts\\Index.cshtml",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Views\\Contracts\\Index.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\Contracts\\Index.cshtml",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Views\\Contracts\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-06T08:25:07.833Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\Contracts\\Delete.cshtml",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Views\\Contracts\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\Contracts\\Delete.cshtml",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Views\\Contracts\\Delete.cshtml",
-              "ViewState": "AgIAAAoAAAAAAAAAAEBVwDcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-06T08:26:34.92Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\ServiceRequests\\Create.cshtml",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Views\\ServiceRequests\\Create.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\ServiceRequests\\Create.cshtml",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Views\\ServiceRequests\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-06T08:29:33.911Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\ServiceRequests\\Index.cshtml",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Views\\ServiceRequests\\Index.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Views\\ServiceRequests\\Index.cshtml",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Views\\ServiceRequests\\Index.cshtml",
-              "ViewState": "AgIAAHEAAAAAAAAAAABRwKMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-06T08:27:19.893Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "GlmsApiClient.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Service\\GlmsApiClient.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Service\\GlmsApiClient.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Service\\GlmsApiClient.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Service\\GlmsApiClient.cs",
-              "ViewState": "AgIAALQAAAAAAAAAAAAkwMsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:46:12.682Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 6,
               "Title": "LogisticService.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Services\\LogisticService.cs",
               "RelativeDocumentMoniker": "GLMS_API\\Services\\LogisticService.cs",
               "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Services\\LogisticService.cs",
               "RelativeToolTip": "GLMS_API\\Services\\LogisticService.cs",
-              "ViewState": "AgIAAIIBAAAAAAAAAAAYwJcBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:47:44.256Z"
+              "WhenOpened": "2026-06-08T07:22:26.919Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Contract.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Models\\Contract.cs",
-              "RelativeDocumentMoniker": "GLMS_API\\Models\\Contract.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Models\\Contract.cs",
-              "RelativeToolTip": "GLMS_API\\Models\\Contract.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Program.cs",
+              "RelativeDocumentMoniker": "GLMS_API\\Program.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Program.cs",
+              "RelativeToolTip": "GLMS_API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:48:58.091Z"
+              "WhenOpened": "2026-06-08T07:22:18.639Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "CreateServiceRequestViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\CreateServiceRequestViewModel.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Models\\CreateServiceRequestViewModel.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\CreateServiceRequestViewModel.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Models\\CreateServiceRequestViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Program.cs",
+              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Program.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Program.cs",
+              "RelativeToolTip": "PROG7311 GLMS MVC\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:45:22.835Z"
+              "WhenOpened": "2026-06-08T07:21:52.454Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ContractsController.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\ContractsController.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Controllers\\ContractsController.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\ContractsController.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Controllers\\ContractsController.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAkwIIAAAABAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "GlmsApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Service\\GlmsApiClient.cs",
+              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Service\\GlmsApiClient.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Service\\GlmsApiClient.cs",
+              "RelativeToolTip": "PROG7311 GLMS MVC\\Service\\GlmsApiClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T08:21:35.197Z"
+              "WhenOpened": "2026-06-08T07:21:43.265Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 10,
+              "Title": "FacadeService.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Service\\FacadeService.cs",
+              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Service\\FacadeService.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Service\\FacadeService.cs",
+              "RelativeToolTip": "PROG7311 GLMS MVC\\Service\\FacadeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T07:21:39.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "ServiceRequestsController.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\ServiceRequestsController.cs",
               "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Controllers\\ServiceRequestsController.cs",
               "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\ServiceRequestsController.cs",
               "RelativeToolTip": "PROG7311 GLMS MVC\\Controllers\\ServiceRequestsController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAkwDsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T08:22:55.533Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ServiceRequest.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\ServiceRequest.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Models\\ServiceRequest.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\ServiceRequest.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Models\\ServiceRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:45:39.3Z"
+              "WhenOpened": "2026-06-08T07:21:37.68Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "GlmsContext.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\GlmsContext.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Models\\GlmsContext.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\GlmsContext.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Models\\GlmsContext.cs",
-              "ViewState": "AgIAAIsAAAAAAAAAAAAowKMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "ContractsController.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\ContractsController.cs",
+              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Controllers\\ContractsController.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\ContractsController.cs",
+              "RelativeToolTip": "PROG7311 GLMS MVC\\Controllers\\ContractsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:45:31.852Z"
+              "WhenOpened": "2026-06-08T07:21:35.668Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "FirebaseViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\FirebaseViewModel.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Models\\FirebaseViewModel.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\FirebaseViewModel.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Models\\FirebaseViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "PROG7311 GLMS MVC\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:45:29.585Z"
+              "WhenOpened": "2026-06-08T07:21:31.769Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ServiceRequestViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\ServiceRequestViewModel.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Models\\ServiceRequestViewModel.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\ServiceRequestViewModel.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Models\\ServiceRequestViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "ServiceRequestAPITests.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ServiceRequestAPITests.cs",
+              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\ServiceRequestAPITests.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ServiceRequestAPITests.cs",
+              "RelativeToolTip": "PROG7311GLMS.Tests\\ServiceRequestAPITests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T08:30:15.41Z"
+              "WhenOpened": "2026-06-08T07:19:50.355Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "CreateContractViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\CreateContractViewModel.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Models\\CreateContractViewModel.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\CreateContractViewModel.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Models\\CreateContractViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "FileUploadTests.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\FileUploadTests.cs",
+              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\FileUploadTests.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\FileUploadTests.cs",
+              "RelativeToolTip": "PROG7311GLMS.Tests\\FileUploadTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:45:14.748Z"
+              "WhenOpened": "2026-06-08T07:19:16.958Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ContractViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\ContractViewModel.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Models\\ContractViewModel.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\ContractViewModel.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Models\\ContractViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAiwBIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "ContractsAPITests.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ContractsAPITests.cs",
+              "RelativeDocumentMoniker": "PROG7311GLMS.Tests\\ContractsAPITests.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311GLMS.Tests\\ContractsAPITests.cs",
+              "RelativeToolTip": "PROG7311GLMS.Tests\\ContractsAPITests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:45:03.43Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ContractServiceRequestViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\ContractServiceRequestViewModel.cs",
-              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Models\\ContractServiceRequestViewModel.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Models\\ContractServiceRequestViewModel.cs",
-              "RelativeToolTip": "PROG7311 GLMS MVC\\Models\\ContractServiceRequestViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T12:44:56.167Z"
+              "WhenOpened": "2026-06-08T07:17:12.657Z",
+              "EditorCaption": ""
             }
           ]
         }

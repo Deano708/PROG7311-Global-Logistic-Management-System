@@ -2,6 +2,15 @@
 //  GLMS_MVC / Program.cs
 // =============================================================
 
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: Program.cs
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance of MVC program.cs along with troubleshooting.
+• Date(s) 04/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
+
 using PROG7311GLMS.Service;
 
 var builder = WebApplication.CreateBuilder(args);

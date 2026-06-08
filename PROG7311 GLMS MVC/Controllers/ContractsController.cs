@@ -1,7 +1,4 @@
-﻿// =============================================================
-//  GLMS_MVC / Controllers / ContractsController.cs
-//  NO [Authorize] - protected by session guard in Program.cs
-// =============================================================
+﻿
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

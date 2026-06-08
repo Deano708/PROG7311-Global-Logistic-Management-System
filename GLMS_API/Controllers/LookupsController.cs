@@ -3,6 +3,15 @@
 //  Provides reference data (clients, statuses) consumed by the MVC.
 // =============================================================
 
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: LookupsController.
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance of API LookupsController allowing for http calls of GET.
+• Date(s) 03/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using GLMS_API.DTOs;

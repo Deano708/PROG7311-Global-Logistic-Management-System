@@ -1,7 +1,4 @@
-﻿// =============================================================
-//  GLMS_MVC / Controllers / ServiceRequestsController.cs
-//  NO [Authorize] - protected by session guard in Program.cs
-// =============================================================
+﻿
 
 using Microsoft.AspNetCore.Mvc;
 using PROG7311GLMS.Models;

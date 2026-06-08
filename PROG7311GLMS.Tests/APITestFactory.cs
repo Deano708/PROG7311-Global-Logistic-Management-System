@@ -2,6 +2,25 @@
 //  PROG7311GLMS.Tests / ApiTestFactory.cs
 // =============================================================
 
+/*
+   Title: Integration tests in ASP.NET Core
+   Author:  Microsoft Learn
+   Date: 03/10/2026 ##I presume they use the US date format, so this is March 10, 2026##
+   Date accessed: 05/06/2026
+   Availability: https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-10.0&pivots=nunit
+*/
+
+/*
+Title: Disclosure of AI Usage in my Assessment.
+• Section: API Test Factory.
+• AI Tool: Claude Sonnet 4.6
+• Purpose/intention : Design assistance of API Test Factory allowing for tesing of http calls of POST, GET, PATCH, and DELETE.
+• Date(s) 05/06/2026.
+• https://claude.ai/share/503d645e-0ce0-4796-920e-6e73ce7ccfb5
+*/
+
+
+
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using GLMS_API.Models;
