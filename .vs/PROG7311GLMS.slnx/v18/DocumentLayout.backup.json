@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\prog7311 glms mvc\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{976ADD3A-21DE-0DF3-567E-FBF78E513184}|PROG7311 GLMS MVC\\PROG7311GLMS.csproj|solutionrelative:prog7311 glms mvc\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|c:\\users\\lab_services_student\\documents\\github\\prog7311-g2-2026-poe-deano708\\glms_api\\services\\logisticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9367013A-25C5-4883-9F9B-51F21CF71334}|GLMS_API\\GLMS_API.csproj|solutionrelative:glms_api\\services\\logisticservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,46 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Dockerfile",
+              "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\Dockerfile",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\Dockerfile",
+              "RelativeToolTip": "PROG7311 GLMS MVC\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-08T14:31:44.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Dockerfile",
+              "RelativeDocumentMoniker": "GLMS_API\\Dockerfile",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Dockerfile",
+              "RelativeToolTip": "GLMS_API\\Dockerfile",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-08T14:30:03.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "LogisticService.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Services\\LogisticService.cs",
               "RelativeDocumentMoniker": "GLMS_API\\Services\\LogisticService.cs",
               "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\Services\\LogisticService.cs",
               "RelativeToolTip": "GLMS_API\\Services\\LogisticService.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-08T14:26:28.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-08T14:26:28.821Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GLMS_API",
+              "DocumentIndex": 3,
+              "Title": "GLMS_API.csproj",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\GLMS_API.csproj",
               "RelativeDocumentMoniker": "GLMS_API\\GLMS_API.csproj",
               "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\GLMS_API\\GLMS_API.csproj",
               "RelativeToolTip": "GLMS_API\\GLMS_API.csproj",
               "ViewState": "AgIAAAUAAAAAAAAAAAAIwAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-08T13:53:16.847Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-08T13:53:16.847Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PROG7311GLMS",
+              "DocumentIndex": 4,
+              "Title": "PROG7311GLMS.csproj",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\PROG7311GLMS.csproj",
               "RelativeDocumentMoniker": "PROG7311 GLMS MVC\\PROG7311GLMS.csproj",
               "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\prog7311-g2-2026-poe-Deano708\\PROG7311 GLMS MVC\\PROG7311GLMS.csproj",
               "RelativeToolTip": "PROG7311 GLMS MVC\\PROG7311GLMS.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-08T13:52:55.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-08T13:52:55.5Z"
             }
           ]
         }

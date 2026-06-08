@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GLMS_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fd283ce1908162134b49d3ceb825e80b7b60a6e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0fd6e64425d0a5c54a2fbbe0b166865f4564119")]
 [assembly: System.Reflection.AssemblyProductAttribute("GLMS_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GLMS_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
