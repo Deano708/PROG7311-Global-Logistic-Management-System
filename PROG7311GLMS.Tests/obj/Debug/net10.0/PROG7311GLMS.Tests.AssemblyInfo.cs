@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PROG7311GLMS.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0fd6e64425d0a5c54a2fbbe0b166865f4564119")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da3fdadf4b2ea6cab3141e5186745f93d610daaa")]
 [assembly: System.Reflection.AssemblyProductAttribute("PROG7311GLMS.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PROG7311GLMS.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
